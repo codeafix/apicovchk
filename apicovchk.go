@@ -87,7 +87,8 @@ Usage:
 Options:
 -opt <optionsFile>
       A file containing the list of transaction logs and the list of services in the API.
-      The file should be in the following format.
+	  The file should be in the following format.
+	  NOTE: Paths for swagger files and log files can be local file URLs or web URLs.
       {
         "transactionLogFiles":[
           "log1.txt",

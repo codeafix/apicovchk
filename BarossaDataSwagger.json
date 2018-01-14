@@ -1,0 +1,4431 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": " This describes the documentation for barossa data service. The authentication token contains DemoCompany open token details. The token will expire after 20 mins. Press F5 to get a new one.",
+        "version": "0.2.2",
+        "title": "BarossaData",
+        "termsOfService": "None yet",
+        "contact": {
+            "name": "Thomson-TRTASharedPlatforms-Barossa@Thomsonreuters.com"
+        },
+        "license": {
+            "name": "No license",
+            "url": "--"
+        }
+    },
+    "basePath": "",
+    "paths": {
+        "/report-images/customers/{customerId}/reports": {
+            "put": {
+                "produces": [
+                    "application/pdf"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully exported"
+                    },
+                    "400": {
+                        "description": "Payload does not contain an array of page ids"
+                    },
+                    "404": {
+                        "description": "One of the pages in the report could not be found"
+                    }
+                },
+                "tags": [
+                    "Export a report"
+                ],
+                "parameters": [
+                    {
+                        "name": "customerId",
+                        "in": "path",
+                        "type": "string",
+                        "description": "The id of the customer whose report needs to be exported.",
+                        "required": true
+                    },
+                    {
+                        "name": "preview",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Indicates whether the response should include a hint to preview the exported report",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Array of pages that needs to be exported",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Ids"
+                        }
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/": {
+            "post": {
+                "tags": [
+                    "reporting entity"
+                ],
+                "summary": "Adds a new reporting entity",
+                "description": "Adds a new reporting entity.",
+                "operationId": "addReportingEntity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entities that are being fetched.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Reporting Entity object that needs to be added to the store.<br>Tag is in the format of: /master-data/customers/customerId/entities/reportingEntitycode",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ReportingEntityNameAndCode"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingEntityResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:reportingentities",
+                            "read:reportingentities"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "reporting entity"
+                ],
+                "summary": "Gets a list of reporting entities",
+                "description": "Returns list of reporting entities.",
+                "operationId": "getReportingEntities",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entities that are being fetched.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingEntityListResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingentities",
+                            "read:reportingentities"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/{reportingEntityId}": {
+            "get": {
+                "tags": [
+                    "reporting entity"
+                ],
+                "summary": "Gets a single reporting entity",
+                "description": "Returns a single of reporting entity by id.",
+                "operationId": "getReportingEntity",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entity that is being fetched.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingEntityResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Reporting Entity not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingentities",
+                            "read:reportingentities"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "reporting entity"
+                ],
+                "summary": "Updates an existing reporting entity",
+                "description": "Updates an existing reporting entity.",
+                "operationId": "updateReportingEntityWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Reporting Entity object that needs to be updated.<br>Tag is in the format of: /master-data/customers/customerId/entities/reportingEntitycode",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ReportingEntityNameAndCode"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entity that is being edited.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingEntityResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Reporting Entity not found/Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict."
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingentities",
+                            "read:reportingentities"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "reporting entity"
+                ],
+                "summary": "Delete an existing Reporting Entity",
+                "description": "Delete an existing Reporting Entity.",
+                "operationId": "deleteReportingEntityWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entity that is being deleted.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this data",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Reporting Entity not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingentities",
+                            "read:reportingentitiess"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/{reportingEntityId}/financial-periods": {
+            "post": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Adds a new financial period for given reporting entity",
+                "description": "Adds new financial period for the specified reporting entity.",
+                "operationId": "addFinancialPeriodWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Financial Period object that needs to be added to the store. The PublishedId and TemplateCode are unique identifiers of the format: 00000000-0000-0000-0000-000000000000",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity need to be associated with Financial Period ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Get list of financial periods for the specified reporting entity",
+                "description": "Returns list of financial periods.",
+                "operationId": "getFinancialPeriods",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this Financial Period.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodListResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid reporting entity id being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/{reportingEntityId}/gocompatible-financial-periods": {
+            "post": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Adds a new financial period for given reporting entity using Go Templating Service",
+                "description": "Adds new financial period for the specified reporting entity  using Go Templating Service",
+                "operationId": "addFinancialPeriodUsingTemplatingGoForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Financial Period object that needs to be added to the store. The PublishedId and TemplateCode are unique identifiers of the format: 00000000-0000-0000-0000-000000000000",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity need to be associated with Financial Period",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/{reportingEntityId}/financial-periods/{financialPeriodId}": {
+            "get": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Get a single financial period for the specified reporting entity",
+                "description": "Returns single financial period.",
+                "operationId": "getFinancialPeriod",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this Financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "No Financial Period found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Update an existing Financial Period",
+                "description": "Update an existing Financial period.",
+                "operationId": "updateFinancialPeriodWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Financial Period object that needs to be updated.The PublishedId and TemplateCode are unique identifiers of the format: 00000000-0000-0000-0000-000000000000",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this Financial Period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Delete an existing Financial Period",
+                "description": "Delete an existing Financial period.",
+                "operationId": "deleteFinancialPeriodWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "ID of the Reporting Entity that owns this Financial Period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period not found/Invalid route"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/{reportingEntityId}/financial-periods/{financialPeriodId}/sections": {
+            "post": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Adds Section data to Templating Service",
+                "description": "Adds Section data to Templating Service.",
+                "operationId": "CreateSection",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Template Service Uri to which section data to be posted. Service Uri is of string type.",
+                        "schema": {
+                            "$ref": "#/definitions/SectionInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "Id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "Id of the Reporting Entity need to be associated with Financial Period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "Id of the Financial Period that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/SectionResponse"
+                        }
+                    },
+                    "201": {
+                        "description": "Section Created"
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "No Financial Period found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/reporting-entities/{reportingEntityId}/financial-periods/{financialPeriodId}/gocompatible-sections": {
+            "post": {
+                "tags": [
+                    "financial period"
+                ],
+                "summary": "Adds Section data to Go Templating Service",
+                "description": "Adds Section data to Go Templating Service.",
+                "operationId": "CreateGoTemplatingSection",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Template Service Uri to which section data to be posted. Service Uri is of string type.",
+                        "schema": {
+                            "$ref": "#/definitions/SectionInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "Id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "reportingEntityId",
+                        "description": "Id of the Reporting Entity need to be associated with Financial Period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "Id of the Financial Period that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Section Created"
+                    },
+                    "400": {
+                        "description": "BadRequest"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "No Financial Period found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:financialperiods",
+                            "read:financialperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/journal-classifications": {
+            "post": {
+                "tags": [
+                    "journal-classifications"
+                ],
+                "summary": "Adds new journal classification for the specified financial period",
+                "description": "Adds new journal classification.",
+                "operationId": "addJournalClassification.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Journal Classification object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/JournalClassificationInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/JournalClassificationResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:journal-classifications",
+                            "read:journal-classifications"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "journal-classifications"
+                ],
+                "summary": "Gets a list of journal classifications that are under the specified financial period",
+                "description": "Returns a list of journal classifications under the specified financial period.",
+                "operationId": "getJournalClassifications",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/JournalClassificationListResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:journal-classifications",
+                            "read:journal-classifications"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/journal-classifications/{id}": {
+            "put": {
+                "tags": [
+                    "journal-classifications"
+                ],
+                "summary": "Update journal classification for the specified financial period",
+                "description": "Update journal classification.",
+                "operationId": "updateJournalClassification.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Journal Classification object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/JournalClassificationResponse"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID of the JournalClassification",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/JournalClassificationResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:journal-classifications",
+                            "read:journal-classifications"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "journal-classifications"
+                ],
+                "summary": "Delete an existing journal classification for the specified financial period",
+                "description": "Delete journal classification.",
+                "operationId": "deleteJournalClassification.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID of the JournalClassification",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "JournalClassification not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:journal-classifications",
+                            "read:journal-classifications"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/reporting-period-sets": {
+            "post": {
+                "tags": [
+                    "reporting period set / reporting period"
+                ],
+                "summary": "Adds new reporting period set along with reportingperiods for the specified financial period",
+                "description": "Adds new reporting period set.",
+                "operationId": "addReportingPeriodSet",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Reporting Period Set object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ReportingPeriodSetInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Reporting Period Set that need to be associated with Financial Period ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingPeriodSetResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:reportingperiodsets",
+                            "read:reportingperiodsets"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "reporting period set / reporting period"
+                ],
+                "summary": "Get list of reporting period sets along with reporting periods for the specified financial period",
+                "description": "Returns list of reporting period sets.",
+                "operationId": "getReportingPeriodSets",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Reporting Period Set that need to be associated with Financial Period ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingPeriodSetListResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "No Reporting Period Set found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingperiodsets",
+                            "read:reportingperiodsets"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "reporting period set / reporting period"
+                ],
+                "summary": "Deletes all existing reporting period sets along with reporting periods for the specified financial period",
+                "description": "Deletes all existing Reporting Period Sets.",
+                "operationId": "deleteReportingPeriodSets",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodID",
+                        "description": "ID of the Financial Period that owns this Reporting Period Set.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Reporting Period Set not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingperiodsets",
+                            "read:reportingperiodsets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/reporting-period-sets/{setId}": {
+            "get": {
+                "tags": [
+                    "reporting period set / reporting period"
+                ],
+                "summary": "Get a single reporting period set along with reporting periods for the specified financial period",
+                "description": "Returns single reporting period set.",
+                "operationId": "getReportingPeriodSet",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period that owns this reportig period set.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "setId",
+                        "description": "ID of the Reporting Period Set that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingPeriodSetResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "No Reporting Period Set found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingperiodsets",
+                            "read:reportingperiodsets"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "reporting period set / reporting period"
+                ],
+                "summary": "Update an existing Reporting Period Set",
+                "description": "Update an existing Reporting Period Set.",
+                "operationId": "updateReportingPeriodSet",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Financial Period object that needs to be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/FinancialPeriodInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period that owns this Reporting Period Set.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "setId",
+                        "description": "ID of the Reporting Period Set that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ReportingPeriodSetResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Reporting Period Set not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingperiodsets",
+                            "read:reportingperiodsets"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "reporting period set / reporting period"
+                ],
+                "summary": "Delete an existing Reporting Period Set Along With Reporting Periods",
+                "description": "Delete an existing Reporting Period Set.",
+                "operationId": "deleteReportingPeriodWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodID",
+                        "description": "ID of the Financial Period that owns this Reporting Period Set.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "setId",
+                        "description": "ID of the Reporting Period Set that owns this data.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Reporting Period Set not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:reportingperiodsets",
+                            "read:reportingperiodsets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/entity-definitions": {
+            "post": {
+                "tags": [
+                    "entity-definitions"
+                ],
+                "summary": "Adds an entity definition under the specified financial period",
+                "description": "Adds an entity definition under the specified financial period ",
+                "operationId": "addEntityDefinition",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Entity object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/EntityDefinitionListInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityDefinitionListResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data is passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period Not Found/Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entity-definitions",
+                            "read:entity-definitions"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "entity-definitions"
+                ],
+                "summary": "Gets a list of entity definitions that are under the specified financial period",
+                "description": "Returns a list of entity definitions under the specified financial period.",
+                "operationId": "getEntityDefinitions",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityDefinitionListResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entity-definitions",
+                            "read:entity-definitions"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/entity-definitions/{entityDefinitionId}": {
+            "put": {
+                "tags": [
+                    "entity-definitions"
+                ],
+                "summary": "Updates the specified entityb definition under financial period ",
+                "description": "Updates an entity definition .",
+                "operationId": "putEntityDefinitionId",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Entity object that needs to be updated to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/EntityDefinitionInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "entityDefinitionId",
+                        "description": "ID of the entity definition.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityDefinitionListResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data was passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period/Entity not found/Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entity-definitions",
+                            "read:entity-definitions"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "entity-definitions"
+                ],
+                "summary": "Deletes the  entity definition under financial period ",
+                "description": "Deletes an entity definition  that exist under the given entity .",
+                "operationId": "deleteEntityDefinitionId",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "entityDefinitionId",
+                        "description": "ID of the entity definition.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "data not found."
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entity-definitions",
+                            "read:entity-definitions"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/entities": {
+            "post": {
+                "tags": [
+                    "entities"
+                ],
+                "summary": "Adds an entity under the specified financial period",
+                "description": "Adds an entity under the specified financial period ",
+                "operationId": "addEntity",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Entity object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/EntityInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data is passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period Not Found/Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entities",
+                            "read:entities"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "entities"
+                ],
+                "summary": "Gets a list of entities that are under the specified financial period",
+                "description": "Returns a list of entities under the specified financial period.",
+                "operationId": "getEntities",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityListResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entities",
+                            "read:entities"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/entities/{entityId}": {
+            "post": {
+                "tags": [
+                    "entities"
+                ],
+                "summary": "Adds an entity under the  entity group specified",
+                "description": "Adds an entity under the  entity group specified ",
+                "operationId": "addEntity",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Entity object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/EntityInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "entityId",
+                        "description": "ID of the parent entity.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data/reference is passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "FinancialPeriod not found/Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entities",
+                            "read:entities"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "entities"
+                ],
+                "summary": "Updates the specified entity under financial period ",
+                "description": "Updates an entity .",
+                "operationId": "putEntityId",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Entity object that needs to be updated to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/EntityInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "entityId",
+                        "description": "ID of the entity.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/EntityResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data was passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Financial Period/Entity not found/Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entities",
+                            "read:entities"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "entities"
+                ],
+                "summary": "Deletes the  entity (and its subentities) under financial period ",
+                "description": "Deletes an entity and also those subentities  that exist under the given entity .",
+                "operationId": "deleteEntityId",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the financial period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "entityId",
+                        "description": "ID of the entity.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "data not found."
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:entities",
+                            "read:entities"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/comparative-periods": {
+            "post": {
+                "tags": [
+                    "comparative period"
+                ],
+                "summary": "Adds a new comparative period for given financial period",
+                "description": "Adds new comparative period for the specified financial period.",
+                "operationId": "addComparativePeriodWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Comparative Period object that needs to be added to the store.",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/ComparativePeriodInput"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period need to be associated with Comparative Period ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ComparativePeriodResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:comparativeperiods",
+                            "read:comparativeperiods"
+                        ]
+                    }
+                ]
+            },
+            "get": {
+                "tags": [
+                    "comparative period"
+                ],
+                "summary": "Get list of comparative periods for given financial period",
+                "description": "Returns list of comparative periods for the specified financial period.",
+                "operationId": "getComparativePeriods",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period need to be associated with Comparative Period ",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ComparativePeriodListResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:comparativeperiods",
+                            "read:comparativeperiods"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "comparative period"
+                ],
+                "summary": "Deletes all existing comparative periods for the specified financial period",
+                "description": "Deletes all existing Comparative Periods",
+                "operationId": "deleteComparativePeriods",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodID",
+                        "description": "ID of the Financial Period associated with the Comparative Periods.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Comparative Periods not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:comparativeperiods",
+                            "read:comparativeperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/comparative-periods/{comparativePeriodId}": {
+            "get": {
+                "tags": [
+                    "comparative period"
+                ],
+                "summary": "Get a single comparative period for the specified financial period",
+                "description": "Returns single comparative period.",
+                "operationId": "getComparativePeriod",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period need to be associated with Comparative Period ",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "comparativePeriodId",
+                        "description": "ID of the Comparative Period",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ComparativePeriodResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:comparativeperiods",
+                            "read:comparativeperiods"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "comparative period"
+                ],
+                "summary": "Updates the specified comparative period",
+                "description": "Updates a comparative period.",
+                "operationId": "updateComparativePeriodWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Comparative Period object that needs to be updated to the store.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ComparativePeriodResponse"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the Financial Period need to be associated with Comparative Period ",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "comparativePeriodId",
+                        "description": "ID of the Comparative Period",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/ComparativePeriodResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:comparativeperiods",
+                            "read:comparativeperiods"
+                        ]
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "comparative period"
+                ],
+                "summary": "Deletes an existing Comparative Period in the specified Financial Period",
+                "description": "Delete an existing Comparative Period",
+                "operationId": "deleteComparativePeriod",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodID",
+                        "description": "ID of the Financial Period associated with the specified Comparative Period.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "comparativePeriodId",
+                        "description": "ID of the Comparative Period.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "successful operation"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Comparative Period not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:comparativeperiods",
+                            "read:comparativeperiods"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/culture-settings": {
+            "get": {
+                "tags": [
+                    "cultureSettings"
+                ],
+                "summary": "Gets a list of cultureSettings which system supports",
+                "description": "Returns a list of cultureSettings which system supports.",
+                "operationId": "getSupportedCultureSettings",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer .-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/SupportedCultureSettingsResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:cultureSettings",
+                            "read:cultureSettings"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/financial-periods/{financialPeriodId}/culture-settings/{cultureSettingsId}": {
+            "get": {
+                "tags": [
+                    "cultureSettings"
+                ],
+                "summary": "Gets the specified culture settings",
+                "description": "Gets a  culture settings.",
+                "operationId": "getCultureSettings",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the associated Financial Period",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "cultureSettingsId",
+                        "description": "ID of the Culture Settings",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CultureSettingsResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path/ Invalid route parameters"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:culturesettings",
+                            "read:culturesettings"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "cultureSettings"
+                ],
+                "summary": "Updates the specified culture settings",
+                "description": "Updates a  culture settings.",
+                "operationId": "updateCultureSettingsWithForm",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Culture Settings object that needs to be updated to the store.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CultureSettingsResponse"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "financialPeriodId",
+                        "description": "ID of the associated Financial Period",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "cultureSettingsId",
+                        "description": "ID of the Culture Settings",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/CultureSettingsResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path/ Invalid route parameters"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:culturesettings",
+                            "read:culturesettings"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/workflow-entries/": {
+            "post": {
+                "tags": [
+                    "workflowState"
+                ],
+                "summary": "Adds a new workflow state",
+                "description": "Adds a new workflow state.",
+                "operationId": "addWorkflowState",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entities that are being fetched.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "WorkFlow State object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/WorkflowPayload"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/WorkflowResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:workflowentries",
+                            "read:workflowentries"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/customers/{customerId}/workflow-entries/{id}": {
+            "get": {
+                "tags": [
+                    "workflowState"
+                ],
+                "summary": "Gets a workflow entry",
+                "description": "Gets a workflow entry",
+                "operationId": "getworkflowEntry",
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the reporting entities that are being fetched.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "The id of the workflow entry",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/WorkflowResponse"
+                        }
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "baroossadata_auth": [
+                            "write:workflowentries",
+                            "read:workflowentries"
+                        ]
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "workflowState"
+                ],
+                "summary": "Update an existing workflow state",
+                "description": "Update an existing workflow state.",
+                "operationId": "updateWorkflowState",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "customerId",
+                        "description": "The id of the customer who created the workflow entriess that are being fetched.-DemoCompany",
+                        "required": true,
+                        "type": "string",
+                        "default": "DemoCompany"
+                    },
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "ID of the workflow state entries.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "WorkFlow State object that needs to be added to the store",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/WorkflowUpdatePayload"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid data being passed"
+                    },
+                    "403": {
+                        "description": "Customer mismatch"
+                    },
+                    "404": {
+                        "description": "Invalid path"
+                    },
+                    "409": {
+                        "description": "Data conflict"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    },
+                    {
+                        "barossadata_auth": [
+                            "write:workflowentries",
+                            "read:workflowentries"
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "ReportingEntityLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "WorkflowPayload": {
+            "properties": {
+                "workflowId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "workflowId"
+                    }
+                }
+            },
+            "xml": {
+                "name": "WorkflowState"
+            }
+        },
+        "WorkflowUpdatePayload": {
+            "properties": {
+                "id": {
+                    "type": "guid",
+                    "xml": {
+                        "name": "id"
+                    }
+                },
+                "workflowId": {
+                    "type": "guid",
+                    "xml": {
+                        "name": "workflowId"
+                    }
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "dateTime",
+                    "xml": {
+                        "name": "startTime"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "xml": {
+                        "name": "status"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "WorkflowState"
+            }
+        },
+        "WorkflowResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingEntityLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "workflowId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "workflowId"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "xml": {
+                        "name": "status"
+                    }
+                },
+                "StartDate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "StartDate"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "WorkflowState"
+            }
+        },
+        "ReportingEntityNameAndCode": {
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                }
+            },
+            "xml": {
+                "name": "ReportingEntity"
+            }
+        },
+        "ReportingEntityResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingEntityLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "LatestFinancialPeriodEndDate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "LatestFinancialPeriodEndDate"
+                    }
+                },
+                "LatestTemplateName": {
+                    "type": "string",
+                    "xml": {
+                        "name": "LatestTemplateName"
+                    }
+                },
+                "LatestVersion": {
+                    "type": "string",
+                    "xml": {
+                        "name": "LatestVersion"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "ReportingEntity"
+            }
+        },
+        "Resource": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "resource name"
+                    }
+                },
+                "Result": {
+                    "type": "string",
+                    "xml": {
+                        "name": "result"
+                    }
+                }
+            },
+            "xml": {
+                "name": "resource"
+            }
+        },
+        "ReportingEntityListLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "EmbeddedReportingEntity": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingEntityLinks"
+                },
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "LatestFinancialPeriodEndDate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "LatestFinancialPeriodEndDate"
+                    }
+                },
+                "LatestTemplateName": {
+                    "type": "string",
+                    "xml": {
+                        "name": "LatestTemplateName"
+                    }
+                },
+                "LatestVersion": {
+                    "type": "string",
+                    "xml": {
+                        "name": "LatestVersion"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "ReportingEntityListResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingEntityListLinks"
+                },
+                "embeddedReportingEntities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmbeddedReportingEntity"
+                    }
+                }
+            }
+        },
+        "FinancialPeriodInput": {
+            "properties": {
+                "startdate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "startdate"
+                    }
+                },
+                "enddate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "enddate"
+                    }
+                },
+                "PublishedId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "PublishedId"
+                    }
+                },
+                "MasterFinancialPeriodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "MasterFinancialPeriodId"
+                    }
+                },
+                "TemplateInfo": {
+                    "type": "string",
+                    "$ref": "#/definitions/TemplateInfo"
+                }
+            },
+            "xml": {
+                "name": "FinancialPeriod"
+            }
+        },
+        "ComparativePeriodInput": {
+            "properties": {
+                "startdate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "startdate"
+                    }
+                },
+                "enddate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "enddate"
+                    }
+                },
+                "roundingAccountCode": {
+                    "type": "string",
+                    "xml": {
+                        "name": "RoundingAccountCode"
+                    }
+                }
+            },
+            "xml": {
+                "name": "ComparativePeriod"
+            }
+        },
+        "TemplateInfo": {
+            "properties": {
+                "TemplateCode": {
+                    "type": "string",
+                    "xml": {
+                        "name": "TemplateCode"
+                    }
+                },
+                "TemplateName": {
+                    "type": "string",
+                    "xml": {
+                        "name": "templatename"
+                    }
+                },
+                "PublishedName": {
+                    "type": "string",
+                    "xml": {
+                        "name": "PublishedTemplateName"
+                    }
+                },
+                "PublishedVersion": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "publishedversion"
+                    }
+                }
+            },
+            "xml": {
+                "name": "TemplateInfo"
+            }
+        },
+        "FinancialPeriodLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "FinancialPeriodResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/FinancialPeriodLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "startdate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "startdate"
+                    }
+                },
+                "enddate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "enddate"
+                    }
+                },
+                "reportingentityid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "reportingentityid"
+                    }
+                },
+                "publishedId": {
+                    "type": "string",
+                    "items": {
+                        "type": "string"
+                    },
+                    "xml": {
+                        "name": "PublishedId"
+                    }
+                },
+                "roundingAccountCode": {
+                    "type": "string",
+                    "items": {
+                        "type": "string"
+                    },
+                    "xml": {
+                        "name": "RoundingAccountCode"
+                    }
+                },
+                "isClosed": {
+                    "type": "boolean",
+                    "items": {
+                        "type": "boolean"
+                    },
+                    "xml": {
+                        "name": "IsClosed"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "items": {
+                        "type": "string"
+                    },
+                    "xml": {
+                        "name": "Status"
+                    }
+                },
+                "masterFinancialPeriodId": {
+                    "type": "string",
+                    "items": {
+                        "type": "string"
+                    },
+                    "xml": {
+                        "name": "MasterFinancialPeriodId"
+                    }
+                },
+                "templateInfo": {
+                    "type": "string",
+                    "$ref": "#/definitions/TemplateInfo"
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "FinancialPeriod"
+            }
+        },
+        "ComparativePeriodResponse": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "xml": {
+                        "name": "id"
+                    }
+                },
+                "startDate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "startdate"
+                    }
+                },
+                "endDate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "enddate"
+                    }
+                },
+                "financialPeriodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "FinancialPeriodId"
+                    }
+                },
+                "sourceFinancialPeriodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "SourceFinancialPeriodId"
+                    }
+                },
+                "sourceComparativePeriodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "SourceComparativePeriodId"
+                    }
+                },
+                "roundingAccountCode": {
+                    "type": "string",
+                    "xml": {
+                        "name": "RoundingAccountCode"
+                    }
+                },
+                "isLinked": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "ComparativePeriod"
+            }
+        },
+        "FinancialPeriodListLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "EntityDefinitionListLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "EntityListLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "EmbeddedFinancialPeriod": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/FinancialPeriodLinks"
+                },
+                "startdate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "startdate"
+                    }
+                },
+                "enddate": {
+                    "type": "string",
+                    "xml": {
+                        "name": "enddate"
+                    }
+                },
+                "PublishedId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "PublishedId"
+                    }
+                },
+                "reportingentityid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "reportingentityid"
+                    }
+                },
+                "roundingAccountCode": {
+                    "type": "string",
+                    "xml": {
+                        "name": "roundingAccountCode"
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "xml": {
+                        "name": "status"
+                    }
+                },
+                "isClosed": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "isClosed"
+                    }
+                },
+                "masterFinancialPeriodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "MasterFinancialPeriodId"
+                    }
+                },
+                "templateInfo": {
+                    "type": "string",
+                    "$ref": "#/definitions/TemplateInfo"
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "EmbeddedEntityDefinition": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/EntityDefinitionLinks"
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodid"
+                    }
+                },
+                "sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "EmbeddedJournalClassification": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodid"
+                    }
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "EmbeddedEntity": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/EntityLinks"
+                },
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "isreportingentity": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodid"
+                    }
+                },
+                "parententityid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "parententityid"
+                    }
+                },
+                "sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "roundindependently": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "FinancialPeriodListResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/FinancialPeriodListLinks"
+                },
+                "embeddedFinancialPeriods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmbeddedFinancialPeriod"
+                    }
+                }
+            }
+        },
+        "ReportingPeriodInput": {
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "offset": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                }
+            },
+            "xml": {
+                "name": "ReportingPeriod"
+            }
+        },
+        "ReportingPeriodLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "ReportingPeriodSetInput": {
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "offset": {
+                    "type": "string",
+                    "xml": {
+                        "name": "offset"
+                    }
+                },
+                "reportingperiods": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ReportingPeriodInput"
+                    }
+                }
+            },
+            "xml": {
+                "name": "ReportingPeriodSet"
+            }
+        },
+        "EntityDefinitionListInput": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/EntityDefinitionInput"
+            }
+        },
+        "EntityDefinitionInput": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "Sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "sequence"
+                    }
+                }
+            },
+            "xml": {
+                "name": "EntityDefinition"
+            }
+        },
+        "EntityInput": {
+            "properties": {
+                "Code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "Name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "IsReportingEntity": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "Sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "RoundIndependently": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "EntityDefinitionId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "entityDefinitionId"
+                    }
+                }
+            },
+            "xml": {
+                "name": "Entity"
+            }
+        },
+        "JournalClassificationInput": {
+            "properties": {
+                "Name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                }
+            },
+            "xml": {
+                "name": "Entity"
+            }
+        },
+        "ReportingPeriodSetLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "ReportingPeriodSetResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingPeriodSetLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "offsettype": {
+                    "type": "string",
+                    "xml": {
+                        "name": "offsettype"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodId"
+                    }
+                },
+                "reportingperiods": {
+                    "type": "array",
+                    "$ref": "#/definitions/ReportingPeriodInput"
+                },
+                "names": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "xml": {
+                        "name": "names"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "ReportingPeriodSet"
+            }
+        },
+        "EntityResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/EntityLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "isreportingentity": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodid"
+                    }
+                },
+                "ParentEntityid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "ParentEntityid"
+                    }
+                },
+                "sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "roundindependently": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "Entity"
+            }
+        },
+        "JournalClassificationResponse": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodId"
+                    }
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "Journal Classification"
+            }
+        },
+        "EntityDefinitionListResponse": {
+            "properties": {
+                "embeddedEntityDefinitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmbeddedEntityDefinition"
+                    }
+                }
+            }
+        },
+        "JournalClassificationListResponse": {
+            "properties": {
+                "embeddedJournalClassifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmbeddedJournalClassification"
+                    }
+                }
+            }
+        },
+        "EntityListResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/EntityListLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "embeddedEntities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmbeddedEntity"
+                    }
+                }
+            }
+        },
+        "GetEntityResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/EntityLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "Code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "Code"
+                    }
+                },
+                "Name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "Name"
+                    }
+                },
+                "IsReportingEntity": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodId"
+                    }
+                },
+                "ParentEntityId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "ParentEntityId"
+                    }
+                },
+                "Sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "RoundIndependently": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "entities": {
+                    "type": "array",
+                    "$ref": "#/definitions/EntityInput"
+                },
+                "xml": {
+                    "name": "Entities"
+                }
+            }
+        },
+        "GenericEntityResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/EntityLinks",
+                    "xml": {
+                        "name": "_links"
+                    }
+                },
+                "Code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "Code"
+                    }
+                },
+                "Name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "Name"
+                    }
+                },
+                "IsReportingEntity": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodId"
+                    }
+                },
+                "Sequence": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "RoundIndependently": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "name"
+                    }
+                }
+            },
+            "xml": {
+                "name": "ReportingPeriodSet"
+            }
+        },
+        "EntityDefinitionLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "EntityLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "ReportingPeriodSetListLinks": {
+            "properties": {
+                "self": {
+                    "properties": {
+                        "href": {
+                            "type": "string",
+                            "xml": {
+                                "name": "URL"
+                            }
+                        }
+                    },
+                    "xml": {
+                        "name": "self"
+                    }
+                }
+            },
+            "xml": {
+                "name": "_links"
+            }
+        },
+        "EmbeddedReportingPeriodSet": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingPeriodSetLinks"
+                },
+                "code": {
+                    "type": "string",
+                    "xml": {
+                        "name": "code"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "financialperiodid": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialperiodid"
+                    }
+                },
+                "offsettype": {
+                    "type": "string",
+                    "xml": {
+                        "name": "offsettype"
+                    }
+                },
+                "reportingperiods": {
+                    "$ref": "#/definitions/ReportingPeriodLinks"
+                },
+                "LastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            }
+        },
+        "ReportingPeriodSetListResponse": {
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/ReportingPeriodSetListLinks"
+                },
+                "embeddedReportingPeriodSets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EmbeddedReportingPeriodSet"
+                    }
+                }
+            }
+        },
+        "ComparativePeriodListResponse": {
+            "properties": {
+                "ComparativePeriodsList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ComparativePeriodResponse"
+                    }
+                }
+            }
+        },
+        "SupportedCultureSettingsResponse": {
+            "properties": {
+                "locales": {
+                    "type": "array",
+                    "items": {
+                        "$ref": ""
+                    }
+                },
+                "dateFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": ""
+                    }
+                },
+                "NegativeCurrencyFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": ""
+                    }
+                },
+                "PositiveCurrencyFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": ""
+                    }
+                },
+                "NegativeNumberFormats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": ""
+                    }
+                }
+            }
+        },
+        "CultureSettingsResponse": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "xml": {
+                        "name": "id"
+                    }
+                },
+                "digitGroupingSymbol": {
+                    "type": "string",
+                    "xml": {
+                        "name": "digitGroupingSymbol"
+                    }
+                },
+                "digitGroupingSize": {
+                    "type": "integer",
+                    "xml": {
+                        "name": "digitGroupingSize"
+                    }
+                },
+                "decimalSeparator": {
+                    "type": "string",
+                    "xml": {
+                        "name": "decimalSeparator"
+                    }
+                },
+                "currencySymbol": {
+                    "type": "string",
+                    "xml": {
+                        "name": "currencySymbol"
+                    }
+                },
+                "dateFormat": {
+                    "type": "string",
+                    "xml": {
+                        "name": "dateFormat"
+                    }
+                },
+                "negativeNumberFormat": {
+                    "type": "string",
+                    "xml": {
+                        "name": "negativeNumberFormat"
+                    }
+                },
+                "negativeCurrencyFormat": {
+                    "type": "string",
+                    "xml": {
+                        "name": "negativeCurrencyFormat"
+                    }
+                },
+                "positiveCurrencyFormat": {
+                    "type": "string",
+                    "xml": {
+                        "name": "positiveCurrencyFormat"
+                    }
+                },
+                "cultureFormat": {
+                    "type": "string",
+                    "xml": {
+                        "name": "cultureFormat"
+                    }
+                },
+                "shouldAllowLocalNumbers": {
+                    "type": "boolean",
+                    "xml": {
+                        "name": "shouldAllowLocalNumbers"
+                    }
+                },
+                "financialPeriodId": {
+                    "type": "string",
+                    "xml": {
+                        "name": "financialPeriodId"
+                    }
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "dateTime"
+                }
+            },
+            "xml": {
+                "name": "cultureSettings"
+            }
+        },
+        "SectionInput": {
+            "properties": {
+                "templateUri": {
+                    "type": "string",
+                    "xml": {
+                        "name": "templateUri"
+                    }
+                }
+            },
+            "xml": {
+                "name": "SectionInput"
+            }
+        },
+        "SectionResponse": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "xml": {
+                        "name": "id"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "xml": {
+                        "name": "name"
+                    }
+                },
+                "href": {
+                    "type": "string",
+                    "xml": {
+                        "name": "href"
+                    }
+                }
+            },
+            "xml": {
+                "name": "SectionResponse"
+            }
+        }
+    }
+}

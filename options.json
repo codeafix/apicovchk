@@ -1,0 +1,16 @@
+{
+  "transactionLogFiles":[
+    "log1.txt",
+    "log2.txt"
+  ],
+  "services":[
+    {
+      "routePath": "data",
+      "swagger": "http://barossa-data.ci-iso.barossabuild.com:6100/Swagger/BarossaDataSwagger.json"
+    },
+    {
+      "routePath": "report-image-generation",
+      "swagger": "http://report-image-gen-svc.ci.oap.int.thomsonreuters.com:5110/Swagger/ReportImageGenerationSwagger.json"
+    }
+  ]
+}

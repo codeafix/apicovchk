@@ -1,0 +1,565 @@
+{
+	"services": {
+		"data": {
+			"key": "data",
+			"pathItems": {
+				"customers": {
+					"key": "customers",
+					"pathItems": {
+						"FunctionalTestCompany": {
+							"key": "FunctionalTestCompany",
+							"pathItems": {
+								"reporting-entities": {
+									"key": "reporting-entities",
+									"pathItems": {
+										"32a7e0b0-8130-4ab1-ace0-a81000890a14": {
+											"key": "32a7e0b0-8130-4ab1-ace0-a81000890a14",
+											"pathItems": {
+												"financial-periods": {
+													"key": "financial-periods",
+													"pathItems": {},
+													"verbs": {
+														"GET": {
+															"name": "GET",
+															"produces": [],
+															"consumes": [],
+															"responses": {
+																"200": {
+																	"code": "200",
+																	"covered": 1,
+																	"documented": false
+																}
+															},
+															"queryParams": {},
+															"documented": false
+														}
+													},
+													"documented": false
+												}
+											},
+											"verbs": null,
+											"documented": false
+										}
+									},
+									"verbs": null,
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"data-capture": {
+			"key": "data-capture",
+			"pathItems": {
+				"customers": {
+					"key": "customers",
+					"pathItems": {
+						"FunctionalTestCompany": {
+							"key": "FunctionalTestCompany",
+							"pathItems": {
+								"containers": {
+									"key": "containers",
+									"pathItems": {
+										"25a03eed-59ca-474e-afc2-96c772fc986d": {
+											"key": "25a03eed-59ca-474e-afc2-96c772fc986d",
+											"pathItems": {},
+											"verbs": {
+												"GET": {
+													"name": "GET",
+													"produces": [],
+													"consumes": [],
+													"responses": {
+														"200": {
+															"code": "200",
+															"covered": 1,
+															"documented": false
+														}
+													},
+													"queryParams": {},
+													"documented": false
+												}
+											},
+											"documented": false
+										}
+									},
+									"verbs": null,
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						},
+						"functionaltestcompany": {
+							"key": "functionaltestcompany",
+							"pathItems": {
+								"containers": {
+									"key": "containers",
+									"pathItems": {
+										"25a03eed-59ca-474e-afc2-96c772fc986d": {
+											"key": "25a03eed-59ca-474e-afc2-96c772fc986d",
+											"pathItems": {
+												"containerGroups": {
+													"key": "containerGroups",
+													"pathItems": {
+														"e4ec8beb-d964-5c66-a9d3-85d3808c1838": {
+															"key": "e4ec8beb-d964-5c66-a9d3-85d3808c1838",
+															"pathItems": {},
+															"verbs": {
+																"GET": {
+																	"name": "GET",
+																	"produces": [],
+																	"consumes": [],
+																	"responses": {
+																		"200": {
+																			"code": "200",
+																			"covered": 1,
+																			"documented": false
+																		}
+																	},
+																	"queryParams": {},
+																	"documented": false
+																}
+															},
+															"documented": false
+														}
+													},
+													"verbs": null,
+													"documented": false
+												}
+											},
+											"verbs": null,
+											"documented": false
+										}
+									},
+									"verbs": null,
+									"documented": false
+								},
+								"pages": {
+									"key": "pages",
+									"pathItems": {
+										"f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6": {
+											"key": "f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6",
+											"pathItems": {
+												"values": {
+													"key": "values",
+													"pathItems": {},
+													"verbs": {
+														"GET": {
+															"name": "GET",
+															"produces": [],
+															"consumes": [],
+															"responses": {
+																"200": {
+																	"code": "200",
+																	"covered": 1,
+																	"documented": false
+																}
+															},
+															"queryParams": {},
+															"documented": false
+														}
+													},
+													"documented": false
+												}
+											},
+											"verbs": {
+												"GET": {
+													"name": "GET",
+													"produces": [],
+													"consumes": [],
+													"responses": {
+														"200": {
+															"code": "200",
+															"covered": 1,
+															"documented": false
+														}
+													},
+													"queryParams": {},
+													"documented": false
+												}
+											},
+											"documented": false
+										}
+									},
+									"verbs": null,
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"long-running-operation": {
+			"key": "long-running-operation",
+			"pathItems": {
+				"long-running-process": {
+					"key": "long-running-process",
+					"pathItems": {
+						"0785daf8-33f1-4050-b43b-70499ab7c08b": {
+							"key": "0785daf8-33f1-4050-b43b-70499ab7c08b",
+							"pathItems": {
+								"0785daf8-33f1-4050-b43b-70499ab7c08b": {
+									"key": "0785daf8-33f1-4050-b43b-70499ab7c08b",
+									"pathItems": {},
+									"verbs": {
+										"GET": {
+											"name": "GET",
+											"produces": [],
+											"consumes": [],
+											"responses": {
+												"200": {
+													"code": "200",
+													"covered": 3,
+													"documented": false
+												}
+											},
+											"queryParams": {},
+											"documented": false
+										}
+									},
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"orchestration": {
+			"key": "orchestration",
+			"pathItems": {
+				"customers": {
+					"key": "customers",
+					"pathItems": {
+						"FunctionalTestCompany": {
+							"key": "FunctionalTestCompany",
+							"pathItems": {
+								"reporting-entities": {
+									"key": "reporting-entities",
+									"pathItems": {
+										"32a7e0b0-8130-4ab1-ace0-a81000890a14": {
+											"key": "32a7e0b0-8130-4ab1-ace0-a81000890a14",
+											"pathItems": {
+												"financial-periods": {
+													"key": "financial-periods",
+													"pathItems": {
+														"e2984c36-aa47-479b-96d3-a81000890af3": {
+															"key": "e2984c36-aa47-479b-96d3-a81000890af3",
+															"pathItems": {
+																"links": {
+																	"key": "links",
+																	"pathItems": {},
+																	"verbs": {
+																		"GET": {
+																			"name": "GET",
+																			"produces": [],
+																			"consumes": [],
+																			"responses": {
+																				"200": {
+																					"code": "200",
+																					"covered": 1,
+																					"documented": false
+																				}
+																			},
+																			"queryParams": {},
+																			"documented": false
+																		}
+																	},
+																	"documented": false
+																}
+															},
+															"verbs": null,
+															"documented": false
+														}
+													},
+													"verbs": null,
+													"documented": false
+												},
+												"gocompatible-financial-periods": {
+													"key": "gocompatible-financial-periods",
+													"pathItems": {},
+													"verbs": {
+														"POST": {
+															"name": "POST",
+															"produces": [],
+															"consumes": [],
+															"responses": {
+																"201": {
+																	"code": "201",
+																	"covered": 1,
+																	"documented": false
+																}
+															},
+															"queryParams": {},
+															"documented": false
+														}
+													},
+													"documented": false
+												}
+											},
+											"verbs": null,
+											"documented": false
+										}
+									},
+									"verbs": {
+										"POST": {
+											"name": "POST",
+											"produces": [],
+											"consumes": [],
+											"responses": {
+												"201": {
+													"code": "201",
+													"covered": 1,
+													"documented": false
+												}
+											},
+											"queryParams": {},
+											"documented": false
+										}
+									},
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"report-image-generation": {
+			"key": "report-image-generation",
+			"pathItems": {
+				"page": {
+					"key": "page",
+					"pathItems": {
+						"25e3bbe4-68a2-4005-a5c5-30d2a794f531": {
+							"key": "25e3bbe4-68a2-4005-a5c5-30d2a794f531",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [],
+									"consumes": [],
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": false
+										}
+									},
+									"queryParams": {},
+									"documented": false
+								}
+							},
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				},
+				"report-images": {
+					"key": "report-images",
+					"pathItems": {
+						"customers": {
+							"key": "customers",
+							"pathItems": {
+								"FunctionalTestCompany": {
+									"key": "FunctionalTestCompany",
+									"pathItems": {
+										"reports": {
+											"key": "reports",
+											"pathItems": {},
+											"verbs": {
+												"PUT": {
+													"name": "PUT",
+													"produces": [],
+													"consumes": [],
+													"responses": {
+														"200": {
+															"code": "200",
+															"covered": 1,
+															"documented": false
+														}
+													},
+													"queryParams": {},
+													"documented": false
+												}
+											},
+											"documented": false
+										}
+									},
+									"verbs": null,
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"report-storage": {
+			"key": "report-storage",
+			"pathItems": {
+				"containers": {
+					"key": "containers",
+					"pathItems": {
+						"2827aaa9-2fcb-4cef-ab58-a81000890b41": {
+							"key": "2827aaa9-2fcb-4cef-ab58-a81000890b41",
+							"pathItems": {
+								"reports": {
+									"key": "reports",
+									"pathItems": {},
+									"verbs": {
+										"GET": {
+											"name": "GET",
+											"produces": [],
+											"consumes": [],
+											"responses": {
+												"200": {
+													"code": "200",
+													"covered": 1,
+													"documented": false
+												}
+											},
+											"queryParams": {},
+											"documented": false
+										}
+									},
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"request-report-run": {
+			"key": "request-report-run",
+			"pathItems": {
+				"compose-report": {
+					"key": "compose-report",
+					"pathItems": {},
+					"verbs": {
+						"POST": {
+							"name": "POST",
+							"produces": [],
+							"consumes": [],
+							"responses": {
+								"204": {
+									"code": "204",
+									"covered": 1,
+									"documented": false
+								}
+							},
+							"queryParams": {},
+							"documented": false
+						}
+					},
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"templating-go": {
+			"key": "templating-go",
+			"pathItems": {
+				"published": {
+					"key": "published",
+					"pathItems": {},
+					"verbs": {
+						"GET": {
+							"name": "GET",
+							"produces": [],
+							"consumes": [],
+							"responses": {
+								"200": {
+									"code": "200",
+									"covered": 1,
+									"documented": false
+								}
+							},
+							"queryParams": {},
+							"documented": false
+						}
+					},
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
+		"test-authentication": {
+			"key": "test-authentication",
+			"pathItems": {
+				"": {
+					"key": "",
+					"pathItems": {},
+					"verbs": {
+						"GET": {
+							"name": "GET",
+							"produces": [],
+							"consumes": [],
+							"responses": {
+								"200": {
+									"code": "200",
+									"covered": 2,
+									"documented": false
+								}
+							},
+							"queryParams": {
+								"role": {
+									"key": "role",
+									"covered": 2,
+									"documented": false
+								}
+							},
+							"documented": false
+						}
+					},
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		}
+	}
+}

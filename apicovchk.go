@@ -10,14 +10,29 @@ import (
 func main() {
 	success, conf, outfilename := parseCommandLineOptions(os.Args)
 	if success {
-		covcheck(conf, outfilename)
+		err := covcheck(conf, outfilename)
+		if err != nil {
+			fmt.Printf("Error processing coverage check: %s\n\n", err.Error())
+		}
 	} else {
 		printUsage()
 	}
 }
 
-func covcheck(conf Config, outfilename string) {
-
+func covcheck(conf Config, outfilename string) error {
+	cc := NewCovChecker()
+	err := cc.CheckCoverage(conf)
+	if err != nil {
+		return err
+	}
+	cc.NavigatePathMap()
+	f, err := os.Create(outfilename)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+	_, err = f.Write([]byte(cc.PrintStats()))
+	return err
 }
 
 func parseCommandLineOptions(args []string) (success bool, conf Config, outfilename string) {

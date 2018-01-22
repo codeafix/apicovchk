@@ -140,7 +140,7 @@ func (pm *PathMap) MapSwaggerPaths(route string, swgr *spec.Swagger) error {
 		lpi := pm.MapElementPath(pi, strings.Split(path, "/"), 1, true)
 		err := pm.AddVerbToPathItem(lpi, spi)
 		if err != nil {
-			return fmt.Errorf("Error adding path '%s': %s", path, err.Error)
+			return fmt.Errorf("Error adding path '%s': %s", path, err.Error())
 		}
 	}
 	return nil

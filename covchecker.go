@@ -12,6 +12,9 @@ type CovCheckerInfo struct {
 	PathMap      *PathMap
 	FileReader   FileReader
 	ServiceStats []*ServiceStat
+	Coverage     float64
+	Undocumented float64
+	TotalPoint   float64
 }
 
 //ServiceStat collects the aggregate coverage for an entire service
@@ -20,6 +23,7 @@ type ServiceStat struct {
 	Endpoints    []EndpointStat
 	Coverage     float64
 	Undocumented float64
+	TotalPoint   float64
 }
 
 //EndpointStat collects the coverage stats for a specific endpoint
@@ -74,13 +78,6 @@ func (cc *CovCheckerInfo) CheckCoverage(config Config) error {
 //PrintStats prints the calculated coverage stats into an HTML document
 func (cc *CovCheckerInfo) PrintStats() string {
 	var buf bytes.Buffer
-	var totCov, totDoc float64
-	for _, ss := range cc.ServiceStats {
-		totCov += ss.Coverage
-		totDoc += 1 - ss.Undocumented
-	}
-	totCov /= float64(len(cc.ServiceStats))
-	totDoc /= float64(len(cc.ServiceStats))
 	fmt.Fprintf(&buf, `<html>
 <h1>Summary</h1>
 <table>
@@ -89,7 +86,7 @@ func (cc *CovCheckerInfo) PrintStats() string {
 </table>
 <h2>Coverage summary by Service</h2>
 <table>
-`, totCov, totCov*100, totDoc, totDoc*100)
+`, cc.Coverage, cc.Coverage*100, 1-cc.Undocumented, (1-cc.Undocumented)*100)
 
 	//First let's print the summary of services
 	for _, ss := range cc.ServiceStats {
@@ -138,9 +135,11 @@ func (cc *CovCheckerInfo) NavigatePathMap() {
 		}
 		cc.ServiceStats = append(cc.ServiceStats, ss)
 		cc.NavigatePathItem(ss, srv, "")
-		ss.Coverage = ss.Coverage / float64(len(ss.Endpoints))
-		ss.Undocumented = ss.Undocumented / float64(len(ss.Endpoints))
+		ss.Coverage = ss.Coverage / ss.TotalPoint
+		ss.Undocumented = ss.Undocumented / ss.TotalPoint
 	}
+	cc.Coverage = cc.Coverage / cc.TotalPoint
+	cc.Undocumented = cc.Undocumented / cc.TotalPoint
 }
 
 //NavigatePathItem iterates over path items descending the path hierarchy
@@ -148,7 +147,7 @@ func (cc *CovCheckerInfo) NavigatePathMap() {
 func (cc *CovCheckerInfo) NavigatePathItem(ss *ServiceStat, pi *PathItem, path string) {
 	for _, child := range pi.PathItems {
 		cpath := fmt.Sprintf("%s/%s", path, child.MapKey())
-		var tot, cov, und int
+		var tot, cov, und float64
 		if child.Verbs != nil {
 			es := EndpointStat{
 				Path:  cpath,
@@ -156,16 +155,20 @@ func (cc *CovCheckerInfo) NavigatePathItem(ss *ServiceStat, pi *PathItem, path s
 			}
 			for _, verb := range child.Verbs {
 				vs := cc.CalculateVerbStats(verb)
-				tot = tot + vs.Total
-				cov = cov + vs.Covered
-				und = und + vs.Undocumented
+				tot = tot + float64(vs.Total)
+				cov = cov + float64(vs.Covered)
+				und = und + float64(vs.Undocumented)
 				es.Verbs = append(es.Verbs, vs)
 			}
-			es.Coverage = float64(cov) / float64(tot)
-			es.Undocumented = float64(und) / float64(tot)
+			es.Coverage = cov / tot
+			es.Undocumented = und / tot
 			ss.Endpoints = append(ss.Endpoints, es)
-			ss.Coverage = ss.Coverage + es.Coverage
-			ss.Undocumented = ss.Undocumented + es.Undocumented
+			ss.Coverage += cov
+			ss.Undocumented += und
+			ss.TotalPoint += tot
+			cc.Coverage += cov
+			cc.Undocumented += und
+			cc.TotalPoint += tot
 		}
 		cc.NavigatePathItem(ss, child, cpath)
 	}

@@ -106,8 +106,8 @@ Options:
 	  NOTE: Paths for swagger files and log files can be local file URLs or web URLs.
       {
         "transactionLogFiles":[
-          "log1.txt",
-          "log2.txt"
+          "file:///log1.txt",
+          "file:///log2.txt"
         ],
         "services":[
           {

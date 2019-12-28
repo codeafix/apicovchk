@@ -1,19 +1,19 @@
 duration(ms)	start-time	end-time	method	url	body	response
-663	18:55.0	18:55.6	GET	http://127.0.0.1:58800/test-authentication/?role=BFTUser1	undefined	200
-749	18:55.6	18:56.4	GET	http://127.0.0.1:58800/templating-go/published	undefined	200
-738	18:56.4	18:57.1	GET	http://127.0.0.1:58800/test-authentication/?role=BFTUser1	undefined	200
-726	18:57.1	18:57.8	POST	http://127.0.0.1:58800/orchestration/customers/FunctionalTestCompany/reporting-entities	"{""code"":""DC textbox1508314737114"",""name"":""DC TextBox Test""}"	201
-1828	18:57.8	18:59.7	POST	http://127.0.0.1:58800/orchestration/customers/FunctionalTestCompany/reporting-entities/32a7e0b0-8130-4ab1-ace0-a81000890a14/gocompatible-financial-periods	"{""startDate"":""2016-12-31"",""endDate"":""2017-12-30"",""publishedId"":""0af343ae-4468-44e5-98aa-897e6e6c5458""}"	201
-818	18:59.7	19:00.5	GET	http://127.0.0.1:58800/data/customers/FunctionalTestCompany/reporting-entities/32a7e0b0-8130-4ab1-ace0-a81000890a14/financial-periods	undefined	200
-623	19:00.5	19:01.1	GET	http://127.0.0.1:58800/orchestration/customers/FunctionalTestCompany/reporting-entities/32a7e0b0-8130-4ab1-ace0-a81000890a14/financial-periods/e2984c36-aa47-479b-96d3-a81000890af3/links	undefined	200
-779	19:01.1	19:01.9	GET	http://127.0.0.1:58800/data-capture/customers/FunctionalTestCompany/containers/25a03eed-59ca-474e-afc2-96c772fc986d	undefined	200
-988	19:01.9	19:02.9	GET	http://127.0.0.1:58800/data-capture/customers/functionaltestcompany/containers/25a03eed-59ca-474e-afc2-96c772fc986d/containerGroups/e4ec8beb-d964-5c66-a9d3-85d3808c1838	undefined	200
-543	19:02.9	19:03.4	GET	http://127.0.0.1:58800/data-capture/customers/functionaltestcompany/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6	undefined	200
-752	19:03.4	19:04.2	GET	http://127.0.0.1:58800/data-capture/customers/functionaltestcompany/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6/values	undefined	200
-628	19:04.2	19:04.8	GET	http://127.0.0.1:58800/report-storage/containers/2827aaa9-2fcb-4cef-ab58-a81000890b41/reports	undefined	200
-960	19:04.8	19:05.8	POST	http://127.0.0.1:58800/request-report-run/compose-report	"{""customerId"":""DC textbox1508314737114"",""ids"":{""acsContainerId"":""31441806-66c3-4611-b75c-a81000890ae4"",""bdsFinancialPeriodId"":""e2984c36-aa47-479b-96d3-a81000890af3"",""cultureSettingsId"":""33619c5c-ec12-4019-b9bb-a81000890b13"",""customerId"":""FunctionalTestCompany"",""dataCaptureContainerId"":""25a03eed-59ca-474e-afc2-96c772fc986d"",""entityCode"":""DC textbox1508314737114"",""reportContainerId"":""2827aaa9-2fcb-4cef-ab58-a81000890b41"",""reportId"":""0b9e0807-05a5-432a-917d-62a911612cf0"",""reportingEntityId"":""32a7e0... (truncated)"	204
-639	19:05.8	19:06.4	GET	http://127.0.0.1:58800/long-running-operation/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b	undefined	200
-630	19:06.4	19:07.1	GET	http://127.0.0.1:58800/long-running-operation/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b	undefined	200
-696	19:12.1	19:12.8	GET	http://127.0.0.1:58800/long-running-operation/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b	undefined	200
-784	19:12.8	19:13.5	GET	http://127.0.0.1:58800/report-image-generation/page/25e3bbe4-68a2-4005-a5c5-30d2a794f531	undefined	200
-813	19:13.6	19:14.4	PUT	http://127.0.0.1:58800/report-image-generation/report-images/customers/FunctionalTestCompany/reports	"{""pageIds"":[""25e3bbe4-68a2-4005-a5c5-30d2a794f531""],""reportSettingsId"":""03586820-ba55-4a69-9046-ca70f81a7d2a""}"	200
+663	18:55.0	18:55.6	GET	http://127.0.0.1:58800/auth/?role=User	undefined	200
+749	18:55.6	18:56.4	GET	http://127.0.0.1:58800/template/published	undefined	200
+738	18:56.4	18:57.1	GET	http://127.0.0.1:58800/auth/?role=User	undefined	200
+726	18:57.1	18:57.8	POST	http://127.0.0.1:58800/orchestration/client/TestClient/entity	"{""code"":""DC textbox1508314737114"",""name"":""DC TextBox Test""}"	201
+1828	18:57.8	18:59.7	POST	http://127.0.0.1:58800/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period	"{""startDate"":""2016-12-31"",""endDate"":""2017-12-30"",""publishedId"":""0af343ae-4468-44e5-98aa-897e6e6c5458""}"	201
+818	18:59.7	19:00.5	GET	http://127.0.0.1:58800/data/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period	undefined	200
+623	19:00.5	19:01.1	GET	http://127.0.0.1:58800/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period/e2984c36-aa47-479b-96d3-a81000890af3/links	undefined	200
+779	19:01.1	19:01.9	GET	http://127.0.0.1:58800/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d	undefined	200
+988	19:01.9	19:02.9	GET	http://127.0.0.1:58800/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d/containerGroups/e4ec8beb-d964-5c66-a9d3-85d3808c1838	undefined	200
+543	19:02.9	19:03.4	GET	http://127.0.0.1:58800/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6	undefined	200
+752	19:03.4	19:04.2	GET	http://127.0.0.1:58800/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6/values	undefined	200
+628	19:04.2	19:04.8	GET	http://127.0.0.1:58800/report-store/containers/2827aaa9-2fcb-4cef-ab58-a81000890b41/reports	undefined	200
+960	19:04.8	19:05.8	POST	http://127.0.0.1:58800/reports/compose-report	"{""clientId"":""DC textbox1508314737114"",""ids"":{""catContainerId"":""31441806-66c3-4611-b75c-a81000890ae4"",""periodId"":""e2984c36-aa47-479b-96d3-a81000890af3"",""settingsId"":""33619c5c-ec12-4019-b9bb-a81000890b13"",""clientId"":""TestClient"",""dataStoreId"":""25a03eed-59ca-474e-afc2-96c772fc986d"",""entityCode"":""DC textbox1508314737114"",""reportsId"":""2827aaa9-2fcb-4cef-ab58-a81000890b41"",""reportId"":""0b9e0807-05a5-432a-917d-62a911612cf0"",""entityId"":""32a7e0... (truncated)"	204
+639	19:05.8	19:06.4	GET	http://127.0.0.1:58800/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b	undefined	200
+630	19:06.4	19:07.1	GET	http://127.0.0.1:58800/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b	undefined	200
+696	19:12.1	19:12.8	GET	http://127.0.0.1:58800/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b	undefined	200
+784	19:12.8	19:13.5	GET	http://127.0.0.1:58800/reports/page/25e3bbe4-68a2-4005-a5c5-30d2a794f531	undefined	200
+813	19:13.6	19:14.4	PUT	http://127.0.0.1:58800/reports/images/client/TestClient/reports	"{""pageIds"":[""25e3bbe4-68a2-4005-a5c5-30d2a794f531""],""settingsId"":""03586820-ba55-4a69-9046-ca70f81a7d2a""}"	200

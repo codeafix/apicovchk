@@ -9,7 +9,7 @@ import (
 
 func TestGetSwaggerContent(t *testing.T) {
 	dir, err := os.Getwd()
-	filepath := fmt.Sprintf("file:///%s/BarossaDataSwagger.json", strings.Replace(dir, "\\", "/", -1))
+	filepath := fmt.Sprintf("file:///%s/swagger.json", strings.Replace(dir, "\\", "/", -1))
 	sr, err := NewSwaggerReader(filepath)
 	AssertSuccess(t, err)
 	c, err := sr.GetSwaggerContent()

@@ -98,9 +98,9 @@ func TestReadFromWeb(t *testing.T) {
 
 func TestReadFromFile(t *testing.T) {
 	dir, err := os.Getwd()
-	filepath := fmt.Sprintf("file:///%s/BarossaDataSwagger.json", strings.Replace(dir, "\\", "/", -1))
+	filepath := fmt.Sprintf("file:///%s/swagger.json", strings.Replace(dir, "\\", "/", -1))
 	sr, err := NewFileReader(filepath)
 	AssertSuccess(t, err)
 	c, err := sr.ReadFromFile()
-	AreEqual(t, "\"swagger\": \"2.0\"", string(c[7:23]), "Unable to read file")
+	AreEqual(t, "\"swagger\": \"2.0\"", string(c[4:20]), "Unable to read file")
 }

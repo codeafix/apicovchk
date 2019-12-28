@@ -1,22 +1,56 @@
 {
 	"services": {
+		"auth": {
+			"key": "auth",
+			"pathItems": {
+				"": {
+					"key": "",
+					"pathItems": {},
+					"verbs": {
+						"GET": {
+							"name": "GET",
+							"produces": [],
+							"consumes": [],
+							"responses": {
+								"200": {
+									"code": "200",
+									"covered": 2,
+									"documented": false
+								}
+							},
+							"queryParams": {
+								"role": {
+									"key": "role",
+									"covered": 2,
+									"documented": false
+								}
+							},
+							"documented": false
+						}
+					},
+					"documented": false
+				}
+			},
+			"verbs": null,
+			"documented": false
+		},
 		"data": {
 			"key": "data",
 			"pathItems": {
-				"customers": {
-					"key": "customers",
+				"client": {
+					"key": "client",
 					"pathItems": {
-						"FunctionalTestCompany": {
-							"key": "FunctionalTestCompany",
+						"TestClient": {
+							"key": "TestClient",
 							"pathItems": {
-								"reporting-entities": {
-									"key": "reporting-entities",
+								"entity": {
+									"key": "entity",
 									"pathItems": {
 										"32a7e0b0-8130-4ab1-ace0-a81000890a14": {
 											"key": "32a7e0b0-8130-4ab1-ace0-a81000890a14",
 											"pathItems": {
-												"financial-periods": {
-													"key": "financial-periods",
+												"period": {
+													"key": "period",
 													"pathItems": {},
 													"verbs": {
 														"GET": {
@@ -56,49 +90,14 @@
 			"verbs": null,
 			"documented": false
 		},
-		"data-capture": {
-			"key": "data-capture",
+		"data-store": {
+			"key": "data-store",
 			"pathItems": {
-				"customers": {
-					"key": "customers",
+				"client": {
+					"key": "client",
 					"pathItems": {
-						"FunctionalTestCompany": {
-							"key": "FunctionalTestCompany",
-							"pathItems": {
-								"containers": {
-									"key": "containers",
-									"pathItems": {
-										"25a03eed-59ca-474e-afc2-96c772fc986d": {
-											"key": "25a03eed-59ca-474e-afc2-96c772fc986d",
-											"pathItems": {},
-											"verbs": {
-												"GET": {
-													"name": "GET",
-													"produces": [],
-													"consumes": [],
-													"responses": {
-														"200": {
-															"code": "200",
-															"covered": 1,
-															"documented": false
-														}
-													},
-													"queryParams": {},
-													"documented": false
-												}
-											},
-											"documented": false
-										}
-									},
-									"verbs": null,
-									"documented": false
-								}
-							},
-							"verbs": null,
-							"documented": false
-						},
-						"functionaltestcompany": {
-							"key": "functionaltestcompany",
+						"TestClient": {
+							"key": "TestClient",
 							"pathItems": {
 								"containers": {
 									"key": "containers",
@@ -135,7 +134,22 @@
 													"documented": false
 												}
 											},
-											"verbs": null,
+											"verbs": {
+												"GET": {
+													"name": "GET",
+													"produces": [],
+													"consumes": [],
+													"responses": {
+														"200": {
+															"code": "200",
+															"covered": 1,
+															"documented": false
+														}
+													},
+													"queryParams": {},
+													"documented": false
+												}
+											},
 											"documented": false
 										}
 									},
@@ -204,8 +218,8 @@
 			"verbs": null,
 			"documented": false
 		},
-		"long-running-operation": {
-			"key": "long-running-operation",
+		"ops": {
+			"key": "ops",
 			"pathItems": {
 				"long-running-process": {
 					"key": "long-running-process",
@@ -249,20 +263,20 @@
 		"orchestration": {
 			"key": "orchestration",
 			"pathItems": {
-				"customers": {
-					"key": "customers",
+				"client": {
+					"key": "client",
 					"pathItems": {
-						"FunctionalTestCompany": {
-							"key": "FunctionalTestCompany",
+						"TestClient": {
+							"key": "TestClient",
 							"pathItems": {
-								"reporting-entities": {
-									"key": "reporting-entities",
+								"entity": {
+									"key": "entity",
 									"pathItems": {
 										"32a7e0b0-8130-4ab1-ace0-a81000890a14": {
 											"key": "32a7e0b0-8130-4ab1-ace0-a81000890a14",
 											"pathItems": {
-												"financial-periods": {
-													"key": "financial-periods",
+												"period": {
+													"key": "period",
 													"pathItems": {
 														"e2984c36-aa47-479b-96d3-a81000890af3": {
 															"key": "e2984c36-aa47-479b-96d3-a81000890af3",
@@ -293,12 +307,6 @@
 															"documented": false
 														}
 													},
-													"verbs": null,
-													"documented": false
-												},
-												"gocompatible-financial-periods": {
-													"key": "gocompatible-financial-periods",
-													"pathItems": {},
 													"verbs": {
 														"POST": {
 															"name": "POST",
@@ -352,85 +360,8 @@
 			"verbs": null,
 			"documented": false
 		},
-		"report-image-generation": {
-			"key": "report-image-generation",
-			"pathItems": {
-				"page": {
-					"key": "page",
-					"pathItems": {
-						"25e3bbe4-68a2-4005-a5c5-30d2a794f531": {
-							"key": "25e3bbe4-68a2-4005-a5c5-30d2a794f531",
-							"pathItems": {},
-							"verbs": {
-								"GET": {
-									"name": "GET",
-									"produces": [],
-									"consumes": [],
-									"responses": {
-										"200": {
-											"code": "200",
-											"covered": 1,
-											"documented": false
-										}
-									},
-									"queryParams": {},
-									"documented": false
-								}
-							},
-							"documented": false
-						}
-					},
-					"verbs": null,
-					"documented": false
-				},
-				"report-images": {
-					"key": "report-images",
-					"pathItems": {
-						"customers": {
-							"key": "customers",
-							"pathItems": {
-								"FunctionalTestCompany": {
-									"key": "FunctionalTestCompany",
-									"pathItems": {
-										"reports": {
-											"key": "reports",
-											"pathItems": {},
-											"verbs": {
-												"PUT": {
-													"name": "PUT",
-													"produces": [],
-													"consumes": [],
-													"responses": {
-														"200": {
-															"code": "200",
-															"covered": 1,
-															"documented": false
-														}
-													},
-													"queryParams": {},
-													"documented": false
-												}
-											},
-											"documented": false
-										}
-									},
-									"verbs": null,
-									"documented": false
-								}
-							},
-							"verbs": null,
-							"documented": false
-						}
-					},
-					"verbs": null,
-					"documented": false
-				}
-			},
-			"verbs": null,
-			"documented": false
-		},
-		"report-storage": {
-			"key": "report-storage",
+		"report-store": {
+			"key": "report-store",
 			"pathItems": {
 				"containers": {
 					"key": "containers",
@@ -471,8 +402,8 @@
 			"verbs": null,
 			"documented": false
 		},
-		"request-report-run": {
-			"key": "request-report-run",
+		"reports": {
+			"key": "reports",
 			"pathItems": {
 				"compose-report": {
 					"key": "compose-report",
@@ -494,13 +425,83 @@
 						}
 					},
 					"documented": false
+				},
+				"images": {
+					"key": "images",
+					"pathItems": {
+						"client": {
+							"key": "client",
+							"pathItems": {
+								"TestClient": {
+									"key": "TestClient",
+									"pathItems": {
+										"reports": {
+											"key": "reports",
+											"pathItems": {},
+											"verbs": {
+												"PUT": {
+													"name": "PUT",
+													"produces": [],
+													"consumes": [],
+													"responses": {
+														"200": {
+															"code": "200",
+															"covered": 1,
+															"documented": false
+														}
+													},
+													"queryParams": {},
+													"documented": false
+												}
+											},
+											"documented": false
+										}
+									},
+									"verbs": null,
+									"documented": false
+								}
+							},
+							"verbs": null,
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
+				},
+				"page": {
+					"key": "page",
+					"pathItems": {
+						"25e3bbe4-68a2-4005-a5c5-30d2a794f531": {
+							"key": "25e3bbe4-68a2-4005-a5c5-30d2a794f531",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [],
+									"consumes": [],
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": false
+										}
+									},
+									"queryParams": {},
+									"documented": false
+								}
+							},
+							"documented": false
+						}
+					},
+					"verbs": null,
+					"documented": false
 				}
 			},
 			"verbs": null,
 			"documented": false
 		},
-		"templating-go": {
-			"key": "templating-go",
+		"template": {
+			"key": "template",
 			"pathItems": {
 				"published": {
 					"key": "published",
@@ -518,40 +519,6 @@
 								}
 							},
 							"queryParams": {},
-							"documented": false
-						}
-					},
-					"documented": false
-				}
-			},
-			"verbs": null,
-			"documented": false
-		},
-		"test-authentication": {
-			"key": "test-authentication",
-			"pathItems": {
-				"": {
-					"key": "",
-					"pathItems": {},
-					"verbs": {
-						"GET": {
-							"name": "GET",
-							"produces": [],
-							"consumes": [],
-							"responses": {
-								"200": {
-									"code": "200",
-									"covered": 2,
-									"documented": false
-								}
-							},
-							"queryParams": {
-								"role": {
-									"key": "role",
-									"covered": 2,
-									"documented": false
-								}
-							},
 							"documented": false
 						}
 					},

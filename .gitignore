@@ -12,6 +12,4 @@
 *.out
 
 #Exclude sundry output and config files
-*.txt
-*.json
 temp

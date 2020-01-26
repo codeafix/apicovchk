@@ -1,0 +1,581 @@
+{
+	"services": {
+		"petstore": {
+			"key": "petstore",
+			"pathItems": {
+				"pet": {
+					"key": "pet",
+					"pathItems": {
+						"findByStatus": {
+							"key": "findByStatus",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 2,
+											"documented": true
+										},
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {
+										"status": {
+											"key": "status",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"findByTags": {
+							"key": "findByTags",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 2,
+											"documented": true
+										},
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {
+										"tags": {
+											"key": "tags",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"{*}": {
+							"key": "{petId}",
+							"pathItems": {
+								"uploadImage": {
+									"key": "uploadImage",
+									"pathItems": {},
+									"verbs": {
+										"POST": {
+											"name": "POST",
+											"produces": [
+												"application/json"
+											],
+											"consumes": [
+												"multipart/form-data"
+											],
+											"responses": {
+												"200": {
+													"code": "200",
+													"covered": 1,
+													"documented": true
+												}
+											},
+											"queryParams": {},
+											"documented": true
+										}
+									},
+									"documented": true
+								}
+							},
+							"verbs": {
+								"DELETE": {
+									"name": "DELETE",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										},
+										"404": {
+											"code": "404",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								},
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": true
+										},
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										},
+										"404": {
+											"code": "404",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								},
+								"POST": {
+									"name": "POST",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": [
+										"application/x-www-form-urlencoded"
+									],
+									"responses": {
+										"405": {
+											"code": "405",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						}
+					},
+					"verbs": {
+						"POST": {
+							"name": "POST",
+							"produces": [
+								"application/json",
+								"application/xml"
+							],
+							"consumes": [
+								"application/json",
+								"application/xml"
+							],
+							"responses": {
+								"405": {
+									"code": "405",
+									"covered": 1,
+									"documented": true
+								}
+							},
+							"queryParams": {},
+							"documented": true
+						},
+						"PUT": {
+							"name": "PUT",
+							"produces": [
+								"application/json",
+								"application/xml"
+							],
+							"consumes": [
+								"application/json",
+								"application/xml"
+							],
+							"responses": {
+								"400": {
+									"code": "400",
+									"covered": 1,
+									"documented": true
+								},
+								"404": {
+									"code": "404",
+									"covered": 1,
+									"documented": true
+								},
+								"405": {
+									"code": "405",
+									"covered": 1,
+									"documented": true
+								}
+							},
+							"queryParams": {},
+							"documented": true
+						}
+					},
+					"documented": true
+				},
+				"store": {
+					"key": "store",
+					"pathItems": {
+						"inventory": {
+							"key": "inventory",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"order": {
+							"key": "order",
+							"pathItems": {
+								"{*}": {
+									"key": "{orderId}",
+									"pathItems": {},
+									"verbs": {
+										"DELETE": {
+											"name": "DELETE",
+											"produces": [
+												"application/json",
+												"application/xml"
+											],
+											"consumes": null,
+											"responses": {
+												"400": {
+													"code": "400",
+													"covered": 1,
+													"documented": true
+												},
+												"404": {
+													"code": "404",
+													"covered": 1,
+													"documented": true
+												}
+											},
+											"queryParams": {},
+											"documented": true
+										},
+										"GET": {
+											"name": "GET",
+											"produces": [
+												"application/json",
+												"application/xml"
+											],
+											"consumes": null,
+											"responses": {
+												"200": {
+													"code": "200",
+													"covered": 1,
+													"documented": true
+												},
+												"400": {
+													"code": "400",
+													"covered": 1,
+													"documented": true
+												},
+												"404": {
+													"code": "404",
+													"covered": 1,
+													"documented": true
+												}
+											},
+											"queryParams": {},
+											"documented": true
+										}
+									},
+									"documented": true
+								}
+							},
+							"verbs": {
+								"POST": {
+									"name": "POST",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": [
+										"application/json"
+									],
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": true
+										},
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						}
+					},
+					"verbs": null,
+					"documented": true
+				},
+				"user": {
+					"key": "user",
+					"pathItems": {
+						"createWithArray": {
+							"key": "createWithArray",
+							"pathItems": {},
+							"verbs": {
+								"POST": {
+									"name": "POST",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": [
+										"application/json"
+									],
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": false
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"createWithList": {
+							"key": "createWithList",
+							"pathItems": {},
+							"verbs": {
+								"POST": {
+									"name": "POST",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": [
+										"application/json"
+									],
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": false
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"login": {
+							"key": "login",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 2,
+											"documented": true
+										},
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {
+										"password": {
+											"key": "password",
+											"covered": 1,
+											"documented": true
+										},
+										"username": {
+											"key": "username",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"logout": {
+							"key": "logout",
+							"pathItems": {},
+							"verbs": {
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": false
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						},
+						"{*}": {
+							"key": "{username}",
+							"pathItems": {},
+							"verbs": {
+								"DELETE": {
+									"name": "DELETE",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										},
+										"404": {
+											"code": "404",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								},
+								"GET": {
+									"name": "GET",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": null,
+									"responses": {
+										"200": {
+											"code": "200",
+											"covered": 1,
+											"documented": true
+										},
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										},
+										"404": {
+											"code": "404",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								},
+								"PUT": {
+									"name": "PUT",
+									"produces": [
+										"application/json",
+										"application/xml"
+									],
+									"consumes": [
+										"application/json"
+									],
+									"responses": {
+										"400": {
+											"code": "400",
+											"covered": 1,
+											"documented": true
+										},
+										"404": {
+											"code": "404",
+											"covered": 1,
+											"documented": true
+										}
+									},
+									"queryParams": {},
+									"documented": true
+								}
+							},
+							"documented": true
+						}
+					},
+					"verbs": {
+						"POST": {
+							"name": "POST",
+							"produces": [
+								"application/json",
+								"application/xml"
+							],
+							"consumes": [
+								"application/json"
+							],
+							"responses": {
+								"200": {
+									"code": "200",
+									"covered": 1,
+									"documented": false
+								}
+							},
+							"queryParams": {},
+							"documented": true
+						}
+					},
+					"documented": true
+				}
+			},
+			"verbs": null,
+			"documented": true
+		}
+	}
+}

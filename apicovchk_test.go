@@ -21,10 +21,10 @@ func TestParseCommandOptionsReadOptionsFile(t *testing.T) {
 	AreEqual(t, "log1.txt", conf.TransactionLogs[0], "Wrong transaction log filename")
 	AreEqual(t, "log2.txt", conf.TransactionLogs[1], "Wrong transaction log filename")
 	AreEqual(t, 2, len(conf.Services), "Wrong number of services")
-	AreEqual(t, "data", conf.Services[0].RoutePath, "Wrong service route name")
-	AreEqual(t, "report-image-generation", conf.Services[1].RoutePath, "Wrong service route name")
-	AreEqual(t, "http://barossa-data.ci-iso.barossabuild.com:6100/Swagger/BarossaDataSwagger.json", conf.Services[0].Swagger, "Wrong swagger URL")
-	AreEqual(t, "http://report-image-gen-svc.ci.oap.int.thomsonreuters.com:5110/Swagger/ReportImageGenerationSwagger.json", conf.Services[1].Swagger, "Wrong swagger URL")
+	AreEqual(t, "petstore", conf.Services[0].RoutePath, "Wrong service route name")
+	AreEqual(t, "open-api-spec", conf.Services[1].RoutePath, "Wrong service route name")
+	AreEqual(t, "https://petstore.swagger.io/v2/swagger.json", conf.Services[0].Swagger, "Wrong swagger URL")
+	AreEqual(t, "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v2.0/json/api-with-examples.json", conf.Services[1].Swagger, "Wrong swagger URL")
 }
 
 func TestParseCommandOptionsFailsWhenNoOptfile(t *testing.T) {
@@ -104,7 +104,7 @@ func CheckGold(t *testing.T, goldfile, json string) {
 	AssertSuccess(t, err)
 
 	if string(gold) != json {
-		f, err := os.Create("check_" + goldfile)
+		f, err := os.Create("temp/check_" + goldfile)
 		AssertSuccess(t, err)
 		defer f.Close()
 		_, err = f.Write([]byte(json))

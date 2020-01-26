@@ -42,6 +42,34 @@ func CheckTransactionLogEntry(t *testing.T) {
 
 func GenerateAccessLogFromSwagger(t *testing.T) {
 	dir, err := os.Getwd()
+	AssertSuccess(t, err)
+	entries := [][7]string{}
+	sumo := true
+	domain := "https://127.0.0.1:8081"
+	if sumo {
+		domain = ""
+	}
+
+	GenerateEntries(t, &entries, dir, domain)
+
+	f, err := os.Create("temp/petstore-log.txt")
+	AssertSuccess(t, err)
+	defer f.Close()
+	if sumo {
+		f.WriteString("API,Response Code\n")
+	} else {
+		f.WriteString("duration(ms)\tstart-time\tend-time\tmethod\turl\tbody\tresponse\n")
+	}
+	for _, line := range entries {
+		s := fmt.Sprintf("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", line[0], line[1], line[2], line[3], line[4], line[5], line[6])
+		if sumo {
+			s = fmt.Sprintf("%s %s,%s\n", line[3], line[4], line[6])
+		}
+		f.WriteString(s)
+	}
+}
+
+func GenerateEntries(t *testing.T, entries *[][7]string, dir string, domain string) {
 	filepath := fmt.Sprintf("file:///%s/PetStoreSwagger.json", strings.Replace(dir, "\\", "/", -1))
 	c := Config{
 		Services: []ServiceEntry{
@@ -51,21 +79,11 @@ func GenerateAccessLogFromSwagger(t *testing.T) {
 			},
 		},
 	}
-	AssertSuccess(t, err)
 	pm := NewPathMap()
-	err = pm.ReadSwagger(c)
+	err := pm.ReadSwagger(c)
 	AssertSuccess(t, err)
-	entries := [][7]string{}
 	for _, pi := range pm.Services["petstore"].PathItems {
-		WalkPathItems(&entries, pi, "https://127.0.0.1:8081/petstore")
-	}
-	f, err := os.Create("temp/petstore-report.txt")
-	AssertSuccess(t, err)
-	defer f.Close()
-	f.WriteString("duration(ms)\tstart-time\tend-time\tmethod\turl\tbody\tresponse\n")
-	for _, line := range entries {
-		s := fmt.Sprintf("%s\t%s\t%s\t%s\t%s\t%s\t%s\n", line[0], line[1], line[2], line[3], line[4], line[5], line[6])
-		f.WriteString(s)
+		WalkPathItems(entries, pi, fmt.Sprintf("%s/petstore", domain))
 	}
 }
 

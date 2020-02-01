@@ -5,6 +5,17 @@
 		"pathElements": [
 			""
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/auth/",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "role=User",
+			"Fragment": ""
+		},
 		"query": {
 			"role": [
 				"User"
@@ -19,6 +30,17 @@
 		"pathElements": [
 			"published"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/template/published",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "template",
 		"response": "200"
@@ -29,6 +51,17 @@
 		"pathElements": [
 			""
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/auth/",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "role=User",
+			"Fragment": ""
+		},
 		"query": {
 			"role": [
 				"User"
@@ -45,6 +78,17 @@
 			"TestClient",
 			"entity"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/orchestration/client/TestClient/entity",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "orchestration",
 		"response": "201"
@@ -59,6 +103,17 @@
 			"32a7e0b0-8130-4ab1-ace0-a81000890a14",
 			"period"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "orchestration",
 		"response": "201"
@@ -73,6 +128,17 @@
 			"32a7e0b0-8130-4ab1-ace0-a81000890a14",
 			"period"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/data/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "data",
 		"response": "200"
@@ -89,6 +155,17 @@
 			"e2984c36-aa47-479b-96d3-a81000890af3",
 			"links"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period/e2984c36-aa47-479b-96d3-a81000890af3/links",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "orchestration",
 		"response": "200"
@@ -102,6 +179,17 @@
 			"containers",
 			"25a03eed-59ca-474e-afc2-96c772fc986d"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "data-store",
 		"response": "200"
@@ -117,6 +205,17 @@
 			"containerGroups",
 			"e4ec8beb-d964-5c66-a9d3-85d3808c1838"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d/containerGroups/e4ec8beb-d964-5c66-a9d3-85d3808c1838",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "data-store",
 		"response": "200"
@@ -130,6 +229,17 @@
 			"pages",
 			"f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "data-store",
 		"response": "200"
@@ -144,6 +254,17 @@
 			"f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6",
 			"values"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6/values",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "data-store",
 		"response": "200"
@@ -156,6 +277,17 @@
 			"2827aaa9-2fcb-4cef-ab58-a81000890b41",
 			"reports"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/report-store/containers/2827aaa9-2fcb-4cef-ab58-a81000890b41/reports",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "report-store",
 		"response": "200"
@@ -166,6 +298,17 @@
 		"pathElements": [
 			"compose-report"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/reports/compose-report",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "reports",
 		"response": "204"
@@ -178,6 +321,17 @@
 			"0785daf8-33f1-4050-b43b-70499ab7c08b",
 			"0785daf8-33f1-4050-b43b-70499ab7c08b"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "ops",
 		"response": "200"
@@ -190,6 +344,17 @@
 			"0785daf8-33f1-4050-b43b-70499ab7c08b",
 			"0785daf8-33f1-4050-b43b-70499ab7c08b"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "ops",
 		"response": "200"
@@ -202,6 +367,17 @@
 			"0785daf8-33f1-4050-b43b-70499ab7c08b",
 			"0785daf8-33f1-4050-b43b-70499ab7c08b"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "ops",
 		"response": "200"
@@ -213,6 +389,17 @@
 			"page",
 			"25e3bbe4-68a2-4005-a5c5-30d2a794f531"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/reports/page/25e3bbe4-68a2-4005-a5c5-30d2a794f531",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "reports",
 		"response": "200"
@@ -226,6 +413,17 @@
 			"TestClient",
 			"reports"
 		],
+		"url": {
+			"Scheme": "http",
+			"Opaque": "",
+			"User": null,
+			"Host": "127.0.0.1:58800",
+			"Path": "/reports/images/client/TestClient/reports",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
 		"query": {},
 		"service": "reports",
 		"response": "200"

@@ -25,7 +25,6 @@ type TransactionLogEntry struct {
 	Duration int      `json:"duration"`
 	Start    string   `json:"start"`
 	End      string   `json:"end"`
-	URL      *url.URL `json:"url"`
 	Body     string   `json:"body"`
 }
 
@@ -69,11 +68,6 @@ func (*LogReaderInfo) ParseTransactionLogEntry(logLine string) (TransactionLogEn
 //LogReaderInfo contains the URL the LogReader should read from
 type LogReaderInfo struct {
 	URLReader URLReader
-}
-
-//LogReader is used to read data from a URL into an array of log entries
-type LogReader interface {
-	GetLogEntries() ([]RequestLogEntry, error)
 }
 
 //NewLogReader returns a new instance of log reader

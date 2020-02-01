@@ -1,0 +1,952 @@
+[
+	{
+		"method": "DELETE",
+		"path": "/v3/Document/*",
+		"pathElements": [
+			"v3",
+			"Document",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Document/*",
+			"RawPath": "/api/v3/Document/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/Obligation/*",
+		"pathElements": [
+			"v3",
+			"Obligation",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Obligation/*",
+			"RawPath": "/api/v3/Obligation/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/agent/*",
+		"pathElements": [
+			"v3",
+			"agent",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/agent/*",
+			"RawPath": "/api/v3/agent/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/clients/*",
+		"pathElements": [
+			"v3",
+			"clients",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/clients/*",
+			"RawPath": "/api/v3/clients/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/contacts/*",
+		"pathElements": [
+			"v3",
+			"contacts",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/contacts/*",
+			"RawPath": "/api/v3/contacts/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/template/*",
+		"pathElements": [
+			"v3",
+			"template",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/template/*",
+			"RawPath": "/api/v3/template/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/fileinfo/*",
+		"pathElements": [
+			"v3",
+			"fileinfo",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/fileinfo/*",
+			"RawPath": "/api/v3/fileinfo/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "DELETE",
+		"path": "/v3/store/*",
+		"pathElements": [
+			"v3",
+			"store",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/store/*",
+			"RawPath": "/api/v3/store/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/*",
+		"pathElements": [
+			"v3",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/*",
+			"RawPath": "/api/v3/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Agent",
+		"pathElements": [
+			"v3",
+			"Agent"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Agent",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Agent/*",
+		"pathElements": [
+			"v3",
+			"Agent",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Agent/*",
+			"RawPath": "/api/v3/Agent/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/ClientSummary/*",
+		"pathElements": [
+			"v3",
+			"ClientSummary",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/ClientSummary/*",
+			"RawPath": "/api/v3/ClientSummary/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients",
+		"pathElements": [
+			"v3",
+			"Clients"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients/*",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*",
+			"RawPath": "/api/v3/Clients/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients/*/ClientNotes",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*",
+			"ClientNotes"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*/ClientNotes",
+			"RawPath": "/api/v3/Clients/*/ClientNotes",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients/*/Document",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*",
+			"Document"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*/Document",
+			"RawPath": "/api/v3/Clients/*/Document",
+			"ForceQuery": false,
+			"RawQuery": "year=*\u0026filingMonth=*\u0026productTypeId=*\u0026productTypeId=*\u0026productTypeId=*",
+			"Fragment": ""
+		},
+		"query": {
+			"filingMonth": [
+				"*"
+			],
+			"productTypeId": [
+				"*",
+				"*",
+				"*"
+			],
+			"year": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients/*/Document/Request",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*",
+			"Document",
+			"Request"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*/Document/Request",
+			"RawPath": "/api/v3/Clients/*/Document/Request",
+			"ForceQuery": false,
+			"RawQuery": "year=*\u0026filingMonth=*\u0026isReminder=*",
+			"Fragment": ""
+		},
+		"query": {
+			"filingMonth": [
+				"*"
+			],
+			"isReminder": [
+				"*"
+			],
+			"year": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients/*/Document/Request",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*",
+			"Document",
+			"Request"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*/Document/Request",
+			"RawPath": "/api/v3/Clients/*/Document/Request",
+			"ForceQuery": false,
+			"RawQuery": "year=*\u0026filingMonth=*\u0026productTypeId=*\u0026productTypeId=*\u0026productTypeId=*\u0026isReminder=*",
+			"Fragment": ""
+		},
+		"query": {
+			"filingMonth": [
+				"*"
+			],
+			"isReminder": [
+				"*"
+			],
+			"productTypeId": [
+				"*",
+				"*",
+				"*"
+			],
+			"year": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Clients/*/Document",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*",
+			"Document"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*/Document",
+			"RawPath": "/api/v3/Clients/*/Document",
+			"ForceQuery": false,
+			"RawQuery": "clientId=*\u0026year=*\u0026filingMonth=*\u0026productTypeId=*\u0026productTypeId=*\u0026productTypeId=*",
+			"Fragment": ""
+		},
+		"query": {
+			"clientId": [
+				"*"
+			],
+			"filingMonth": [
+				"*"
+			],
+			"productTypeId": [
+				"*",
+				"*",
+				"*"
+			],
+			"year": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Template",
+		"pathElements": [
+			"v3",
+			"Template"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Template",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "periodId=*\u0026includeDeleted=*",
+			"Fragment": ""
+		},
+		"query": {
+			"includeDeleted": [
+				"*"
+			],
+			"periodId": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Document",
+		"pathElements": [
+			"v3",
+			"Document"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Document",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "clientId=*",
+			"Fragment": ""
+		},
+		"query": {
+			"clientId": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/Store/*",
+		"pathElements": [
+			"v3",
+			"Store",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Store/*",
+			"RawPath": "/api/v3/Store/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/contacts",
+		"pathElements": [
+			"v3",
+			"contacts"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/contacts",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "ClientId=*",
+			"Fragment": ""
+		},
+		"query": {
+			"ClientId": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/contacts",
+		"pathElements": [
+			"v3",
+			"contacts"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/contacts",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "clientId=*",
+			"Fragment": ""
+		},
+		"query": {
+			"clientId": [
+				"*"
+			]
+		},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/countries",
+		"pathElements": [
+			"v3",
+			"countries"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/countries",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/languages",
+		"pathElements": [
+			"v3",
+			"languages"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/languages",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/users/*",
+		"pathElements": [
+			"v3",
+			"users",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/users/*",
+			"RawPath": "/api/v3/users/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/v3/version",
+		"pathElements": [
+			"v3",
+			"version"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/version",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/",
+		"pathElements": [],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/auth-callback",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "auth-callback",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/base.css",
+		"pathElements": [
+			"base.css"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/css/base.css",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "v=*",
+			"Fragment": ""
+		},
+		"query": {
+			"v": [
+				"*"
+			]
+		},
+		"service": "css",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/favicon.png",
+		"pathElements": [
+			"favicon.png"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/images/favicon.png",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "images",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/logo.svg",
+		"pathElements": [
+			"logo.svg"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/images/logo.svg",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "images",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/csv-js/csv.js",
+		"pathElements": [
+			"csv-js",
+			"csv.js"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/lib/csv-js/csv.js",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "lib",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/",
+		"pathElements": [],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/login",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "login",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/",
+		"pathElements": [],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/logout",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "logout",
+		"response": "200"
+	},
+	{
+		"method": "GET",
+		"path": "/app.config.js",
+		"pathElements": [
+			"app.config.js"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/scripts/app.config.js",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "v=*",
+			"Fragment": ""
+		},
+		"query": {
+			"v": [
+				"*"
+			]
+		},
+		"service": "scripts",
+		"response": "200"
+	},
+	{
+		"method": "POST",
+		"path": "/v3/*",
+		"pathElements": [
+			"v3",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/*",
+			"RawPath": "/api/v3/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "PUT",
+		"path": "/v3/Clients/*",
+		"pathElements": [
+			"v3",
+			"Clients",
+			"*"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients/*",
+			"RawPath": "/api/v3/Clients/*",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "200"
+	},
+	{
+		"method": "POST",
+		"path": "/v3/Clients",
+		"pathElements": [
+			"v3",
+			"Clients"
+		],
+		"url": {
+			"Scheme": "",
+			"Opaque": "",
+			"User": null,
+			"Host": "",
+			"Path": "/api/v3/Clients",
+			"RawPath": "",
+			"ForceQuery": false,
+			"RawQuery": "",
+			"Fragment": ""
+		},
+		"query": {},
+		"service": "api",
+		"response": "201"
+	}
+]

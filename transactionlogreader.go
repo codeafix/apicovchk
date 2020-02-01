@@ -21,17 +21,12 @@ const responsepos = 6
 //Any set of application tests that record the http requests in this format can be used to check the coverage of the
 //API as defined in an associated Swagger description.
 type TransactionLogEntry struct {
-	Duration     int        `json:"duration"`
-	Start        string     `json:"start"`
-	End          string     `json:"end"`
-	Method       string     `json:"method"`
-	URL          *url.URL   `json:"url"`
-	Path         string     `json:"path"`
-	PathElements []string   `json:"pathElements"`
-	Query        url.Values `json:"query"`
-	Service      string     `json:"service"`
-	Body         string     `json:"body"`
-	Response     string     `json:"response"`
+	RequestLogEntry
+	Duration int      `json:"duration"`
+	Start    string   `json:"start"`
+	End      string   `json:"end"`
+	URL      *url.URL `json:"url"`
+	Body     string   `json:"body"`
 }
 
 //ParseTransactionLogEntry creates a new TransactionLogEntry from a line in the TransactionLog file
@@ -78,7 +73,7 @@ type LogReaderInfo struct {
 
 //LogReader is used to read data from a URL into an array of log entries
 type LogReader interface {
-	GetLogEntries() ([]TransactionLogEntry, error)
+	GetLogEntries() ([]RequestLogEntry, error)
 }
 
 //NewLogReader returns a new instance of log reader
@@ -92,19 +87,19 @@ func NewLogReader(urlstring string) (LogReader, error) {
 
 //GetLogEntries reads the log entries from the transaction log's URL and returns a list of the
 //parsed entries
-func (lr *LogReaderInfo) GetLogEntries() ([]TransactionLogEntry, error) {
+func (lr *LogReaderInfo) GetLogEntries() ([]RequestLogEntry, error) {
 	c, err := lr.URLReader.ReadFromURL()
 	if err != nil {
 		return nil, err
 	}
 	rd := bufio.NewReader(bytes.NewReader(c))
-	lel := []TransactionLogEntry{}
+	lel := []RequestLogEntry{}
 	for {
 		line, eof := rd.ReadString('\n')
 		le, err := lr.ParseTransactionLogEntry(line)
 		//Skip lines we can't parse
 		if err == nil {
-			lel = append(lel, le)
+			lel = append(lel, le.RequestLogEntry)
 		}
 		if eof != nil {
 			break

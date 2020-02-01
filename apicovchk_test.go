@@ -109,6 +109,6 @@ func CheckGold(t *testing.T, goldfile, json string) {
 		defer f.Close()
 		_, err = f.Write([]byte(json))
 		AssertSuccess(t, err)
-		t.Errorf("The generated path map is different from the gold file")
+		t.Errorf("The generated file is different from the gold file %s", goldfile)
 	}
 }

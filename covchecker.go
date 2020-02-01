@@ -69,7 +69,7 @@ func (cc *CovCheckerInfo) CheckCoverage(config Config) error {
 			return err
 		}
 		for _, entry := range lel {
-			cc.PathMap.CheckTransactionLogEntry(entry)
+			cc.PathMap.CheckRequestLogEntry(entry)
 		}
 	}
 	return nil

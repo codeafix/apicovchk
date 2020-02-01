@@ -35,7 +35,7 @@ func CheckTransactionLogEntry(t *testing.T) {
 	lel, err := lr.GetLogEntries()
 	AssertSuccess(t, err)
 	for _, entry := range lel {
-		pm.CheckTransactionLogEntry(entry)
+		pm.CheckRequestLogEntry(entry)
 	}
 	CheckGold(t, "PathMapFromLogTest.json", pm.JSON())
 }

@@ -248,11 +248,11 @@ func (pm *PathMap) JSON() string {
 	return string(c)
 }
 
-//CheckTransactionLogEntry checks the passed transaction log entry against
+//CheckRequestLogEntry checks the passed request log entry against
 //this PathMap. If necessary it will add PathItems if the URL is not
 //documented. Verbs, Query Parameters, Response codes used in the log entry
 //that are documented will have their coverage count incremented
-func (pm *PathMap) CheckTransactionLogEntry(le TransactionLogEntry) {
+func (pm *PathMap) CheckRequestLogEntry(le RequestLogEntry) {
 	srv, exists := pm.Services[le.Service]
 	if !exists {
 		srv = NewPathItem(le.Service, false)

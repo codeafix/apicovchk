@@ -1,20 +1,6 @@
 [
 	{
-		"duration": 663,
-		"start": "18:55.0",
-		"end": "18:55.6",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/auth/",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "role=User",
-			"Fragment": ""
-		},
 		"path": "/",
 		"pathElements": [
 			""
@@ -25,50 +11,20 @@
 			]
 		},
 		"service": "auth",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 749,
-		"start": "18:55.6",
-		"end": "18:56.4",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/template/published",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/published",
 		"pathElements": [
 			"published"
 		],
 		"query": {},
 		"service": "template",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 738,
-		"start": "18:56.4",
-		"end": "18:57.1",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/auth/",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "role=User",
-			"Fragment": ""
-		},
 		"path": "/",
 		"pathElements": [
 			""
@@ -79,25 +35,10 @@
 			]
 		},
 		"service": "auth",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 726,
-		"start": "18:57.1",
-		"end": "18:57.8",
 		"method": "POST",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/orchestration/client/TestClient/entity",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/entity",
 		"pathElements": [
 			"client",
@@ -106,25 +47,10 @@
 		],
 		"query": {},
 		"service": "orchestration",
-		"body": "\"{\"\"code\"\":\"\"DC textbox1508314737114\"\",\"\"name\"\":\"\"DC TextBox Test\"\"}\"",
 		"response": "201"
 	},
 	{
-		"duration": 1828,
-		"start": "18:57.8",
-		"end": "18:59.7",
 		"method": "POST",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
 		"pathElements": [
 			"client",
@@ -135,25 +61,10 @@
 		],
 		"query": {},
 		"service": "orchestration",
-		"body": "\"{\"\"startDate\"\":\"\"2016-12-31\"\",\"\"endDate\"\":\"\"2017-12-30\"\",\"\"publishedId\"\":\"\"0af343ae-4468-44e5-98aa-897e6e6c5458\"\"}\"",
 		"response": "201"
 	},
 	{
-		"duration": 818,
-		"start": "18:59.7",
-		"end": "19:00.5",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/data/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
 		"pathElements": [
 			"client",
@@ -164,25 +75,10 @@
 		],
 		"query": {},
 		"service": "data",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 623,
-		"start": "19:00.5",
-		"end": "19:01.1",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period/e2984c36-aa47-479b-96d3-a81000890af3/links",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period/e2984c36-aa47-479b-96d3-a81000890af3/links",
 		"pathElements": [
 			"client",
@@ -195,25 +91,10 @@
 		],
 		"query": {},
 		"service": "orchestration",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 779,
-		"start": "19:01.1",
-		"end": "19:01.9",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d",
 		"pathElements": [
 			"client",
@@ -223,25 +104,10 @@
 		],
 		"query": {},
 		"service": "data-store",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 988,
-		"start": "19:01.9",
-		"end": "19:02.9",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d/containerGroups/e4ec8beb-d964-5c66-a9d3-85d3808c1838",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d/containerGroups/e4ec8beb-d964-5c66-a9d3-85d3808c1838",
 		"pathElements": [
 			"client",
@@ -253,25 +119,10 @@
 		],
 		"query": {},
 		"service": "data-store",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 543,
-		"start": "19:02.9",
-		"end": "19:03.4",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6",
 		"pathElements": [
 			"client",
@@ -281,25 +132,10 @@
 		],
 		"query": {},
 		"service": "data-store",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 752,
-		"start": "19:03.4",
-		"end": "19:04.2",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6/values",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6/values",
 		"pathElements": [
 			"client",
@@ -310,25 +146,10 @@
 		],
 		"query": {},
 		"service": "data-store",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 628,
-		"start": "19:04.2",
-		"end": "19:04.8",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/report-store/containers/2827aaa9-2fcb-4cef-ab58-a81000890b41/reports",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/containers/2827aaa9-2fcb-4cef-ab58-a81000890b41/reports",
 		"pathElements": [
 			"containers",
@@ -337,50 +158,20 @@
 		],
 		"query": {},
 		"service": "report-store",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 960,
-		"start": "19:04.8",
-		"end": "19:05.8",
 		"method": "POST",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/reports/compose-report",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/compose-report",
 		"pathElements": [
 			"compose-report"
 		],
 		"query": {},
 		"service": "reports",
-		"body": "\"{\"\"clientId\"\":\"\"DC textbox1508314737114\"\",\"\"ids\"\":{\"\"catContainerId\"\":\"\"31441806-66c3-4611-b75c-a81000890ae4\"\",\"\"periodId\"\":\"\"e2984c36-aa47-479b-96d3-a81000890af3\"\",\"\"settingsId\"\":\"\"33619c5c-ec12-4019-b9bb-a81000890b13\"\",\"\"clientId\"\":\"\"TestClient\"\",\"\"dataStoreId\"\":\"\"25a03eed-59ca-474e-afc2-96c772fc986d\"\",\"\"entityCode\"\":\"\"DC textbox1508314737114\"\",\"\"reportsId\"\":\"\"2827aaa9-2fcb-4cef-ab58-a81000890b41\"\",\"\"reportId\"\":\"\"0b9e0807-05a5-432a-917d-62a911612cf0\"\",\"\"entityId\"\":\"\"32a7e0... (truncated)\"",
 		"response": "204"
 	},
 	{
-		"duration": 639,
-		"start": "19:05.8",
-		"end": "19:06.4",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
 		"pathElements": [
 			"long-running-process",
@@ -389,25 +180,10 @@
 		],
 		"query": {},
 		"service": "ops",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 630,
-		"start": "19:06.4",
-		"end": "19:07.1",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
 		"pathElements": [
 			"long-running-process",
@@ -416,25 +192,10 @@
 		],
 		"query": {},
 		"service": "ops",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 696,
-		"start": "19:12.1",
-		"end": "19:12.8",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
 		"pathElements": [
 			"long-running-process",
@@ -443,25 +204,10 @@
 		],
 		"query": {},
 		"service": "ops",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 784,
-		"start": "19:12.8",
-		"end": "19:13.5",
 		"method": "GET",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/reports/page/25e3bbe4-68a2-4005-a5c5-30d2a794f531",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/page/25e3bbe4-68a2-4005-a5c5-30d2a794f531",
 		"pathElements": [
 			"page",
@@ -469,25 +215,10 @@
 		],
 		"query": {},
 		"service": "reports",
-		"body": "undefined",
 		"response": "200"
 	},
 	{
-		"duration": 813,
-		"start": "19:13.6",
-		"end": "19:14.4",
 		"method": "PUT",
-		"url": {
-			"Scheme": "http",
-			"Opaque": "",
-			"User": null,
-			"Host": "127.0.0.1:58800",
-			"Path": "/reports/images/client/TestClient/reports",
-			"RawPath": "",
-			"ForceQuery": false,
-			"RawQuery": "",
-			"Fragment": ""
-		},
 		"path": "/images/client/TestClient/reports",
 		"pathElements": [
 			"images",
@@ -497,7 +228,6 @@
 		],
 		"query": {},
 		"service": "reports",
-		"body": "\"{\"\"pageIds\"\":[\"\"25e3bbe4-68a2-4005-a5c5-30d2a794f531\"\"],\"\"settingsId\"\":\"\"03586820-ba55-4a69-9046-ca70f81a7d2a\"\"}\"",
 		"response": "200"
 	}
 ]

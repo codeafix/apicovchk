@@ -6,6 +6,7 @@ package main
 type Config struct {
 	TransactionLogs []string       `json:"transactionLogFiles"`
 	Services        []ServiceEntry `json:"services"`
+	LogFormat       int            `json:"logFormat"`
 }
 
 //ServiceEntry contains the path name used by the reverse proxy to route to the

@@ -11,7 +11,7 @@ import (
 
 func TestAddSwaggerToPathMap(t *testing.T) {
 	dir, err := os.Getwd()
-	filepath := fmt.Sprintf("file:///%s/PetStoreSwagger.json", strings.Replace(dir, "\\", "/", -1))
+	filepath := fmt.Sprintf("file:///%s/PetstoreSwagger.json", strings.Replace(dir, "\\", "/", -1))
 	c := Config{
 		Services: []ServiceEntry{
 			ServiceEntry{

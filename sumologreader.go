@@ -41,23 +41,14 @@ func (*SumoLogReaderInfo) ParseSumoLogEntry(logLine string) (RequestLogEntry, er
 	return rle, nil
 }
 
-//SumoLogReaderInfo contains the URL the LogReader should read from
+//SumoLogReaderInfo contains the URLReader the LogReader should read from
 type SumoLogReaderInfo struct {
-	URLReader URLReader
-}
-
-//LogReader is used to read data from a URL into an array of log entries
-type LogReader interface {
-	GetLogEntries() ([]RequestLogEntry, error)
+	LogReaderInfo
 }
 
 //NewSumoLogReader returns a new instance of log reader
-func NewSumoLogReader(urlstring string) (LogReader, error) {
-	ur, err := NewURLReader(urlstring)
-	if err != nil {
-		return nil, err
-	}
-	return &SumoLogReaderInfo{URLReader: ur}, nil
+func NewSumoLogReader() LogReader {
+	return &SumoLogReaderInfo{}
 }
 
 //GetLogEntries reads the log entries from the transaction log's URL and returns a list of the

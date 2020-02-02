@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"testing"
@@ -15,11 +16,14 @@ func TestParseCommandOptionsFailsWhenOnlyHelp(t *testing.T) {
 func TestParseCommandOptionsReadOptionsFile(t *testing.T) {
 	args := []string{"apicovchk.exe", "-opt", "options.json"}
 	success, conf, outfilename := parseCommandLineOptions(args)
+	fmt.Printf("%v", conf)
 	IsTrue(t, success, "Expected parse to succeed")
 	AreEqual(t, "coverage.html", outfilename, "outfilename not set to default")
 	AreEqual(t, 2, len(conf.TransactionLogs), "Wrong number of transaction logs")
-	AreEqual(t, "log1.txt", conf.TransactionLogs[0], "Wrong transaction log filename")
-	AreEqual(t, "log2.txt", conf.TransactionLogs[1], "Wrong transaction log filename")
+	AreEqual(t, "log1.txt", conf.TransactionLogs[0].LogURL, "Wrong transaction log filename")
+	AreEqual(t, LogType(Sumo), conf.TransactionLogs[0].LogType, "Wrong transaction log type")
+	AreEqual(t, "log2.txt", conf.TransactionLogs[1].LogURL, "Wrong transaction log filename")
+	AreEqual(t, LogType(Transaction), conf.TransactionLogs[1].LogType, "Wrong transaction log type")
 	AreEqual(t, 2, len(conf.Services), "Wrong number of services")
 	AreEqual(t, "petstore", conf.Services[0].RoutePath, "Wrong service route name")
 	AreEqual(t, "open-api-spec", conf.Services[1].RoutePath, "Wrong service route name")
@@ -83,7 +87,7 @@ func IsTrue(t *testing.T, condition bool, msg string) {
 
 func AreEqual(t *testing.T, expected interface{}, actual interface{}, msg string) {
 	if expected != actual {
-		t.Errorf("%s Expected = %v Actual = %v", msg, expected, actual)
+		t.Errorf("%s Expected = %v,%T Actual = %v,%T", msg, expected, expected, actual, actual)
 	}
 }
 

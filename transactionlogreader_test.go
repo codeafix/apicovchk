@@ -10,7 +10,7 @@ import (
 
 func TestParseTransactionLogEntry(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	POST	http://127.0.0.1:58800/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/periods	\"{\"\"startDate\"\":\"\"2016-12-31\"\",\"\"endDate\"\":\"\"2017-12-30\"\",\"\"publishedId\"\":\"\"0af343ae-4468-44e5-98aa-897e6e6c5458\"\"}\"	201"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	tle, err := tlr.ParseTransactionLogEntry(ll)
 	AssertSuccess(t, err)
 	AreEqual(t, 1828, tle.Duration, "Duration not correct")
@@ -26,7 +26,7 @@ func TestParseTransactionLogEntry(t *testing.T) {
 
 func TestParseTransactionLogEntryElems1(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	get	http://127.0.0.1:58800/orchestration/client/TestClient/entity	undefined	201"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	tle, err := tlr.ParseTransactionLogEntry(ll)
 	AssertSuccess(t, err)
 	AreEqual(t, "GET", tle.Method, "Method not correct")
@@ -38,7 +38,7 @@ func TestParseTransactionLogEntryElems1(t *testing.T) {
 
 func TestParseTransactionLogEntryElems2(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	get	http://127.0.0.1:58800/orchestration/client/TestClient/entity/	undefined	201"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	tle, err := tlr.ParseTransactionLogEntry(ll)
 	AssertSuccess(t, err)
 	AreEqual(t, "GET", tle.Method, "Method not correct")
@@ -51,7 +51,7 @@ func TestParseTransactionLogEntryElems2(t *testing.T) {
 
 func TestParseTransactionLogEntryElems3(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	get	http://127.0.0.1:58800/auth/?role=User&session=Active	undefined	201"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	tle, err := tlr.ParseTransactionLogEntry(ll)
 	AssertSuccess(t, err)
 	AreEqual(t, "GET", tle.Method, "Method not correct")
@@ -61,7 +61,7 @@ func TestParseTransactionLogEntryElems3(t *testing.T) {
 
 func TestParseTransactionLogEntryWorksWithRelativePath(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	POST	orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/periods	\"{\"\"startDate\"\":\"\"2016-12-31\"\",\"\"endDate\"\":\"\"2017-12-30\"\",\"\"publishedId\"\":\"\"0af343ae-4468-44e5-98aa-897e6e6c5458\"\"}\"	404"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	tle, err := tlr.ParseTransactionLogEntry(ll)
 	AssertSuccess(t, err)
 	AreEqual(t, "orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/periods", tle.URL.String(), "URL not correct")
@@ -71,28 +71,28 @@ func TestParseTransactionLogEntryWorksWithRelativePath(t *testing.T) {
 
 func TestParseTransactionLogEntryReportsFailsWhenDurationNaN(t *testing.T) {
 	ll := "whatever	18:57.8	18:59.7	POST	orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/periods	\"{\"\"startDate\"\":\"\"2016-12-31\"\",\"\"endDate\"\":\"\"2017-12-30\"\",\"\"publishedId\"\":\"\"0af343ae-4468-44e5-98aa-897e6e6c5458\"\"}\"	404"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	_, err := tlr.ParseTransactionLogEntry(ll)
 	IsTrue(t, err != nil, "Incorrectly succeeded when duration NaN")
 }
 
 func TestParseTransactionLogEntryFailsWithInvalidUrl(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	POST	//--- - - orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/periods	\"{\"\"startDate\"\":\"\"2016-12-31\"\",\"\"endDate\"\":\"\"2017-12-30\"\",\"\"publishedId\"\":\"\"0af343ae-4468-44e5-98aa-897e6e6c5458\"\"}\"	404"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	_, err := tlr.ParseTransactionLogEntry(ll)
 	IsTrue(t, err != nil, "Incorrectly succeeded with invalid URL")
 }
 
 func TestParseTransactionLogEntryFailsWithNoPathElementInUrl(t *testing.T) {
 	ll := "1828	18:57.8	18:59.7	POST	http://127.0.0.1:58800/	undefined	404"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	_, err := tlr.ParseTransactionLogEntry(ll)
 	IsTrue(t, err != nil, "Incorrectly succeeded with invalid URL")
 }
 
 func TestParseTransactionLogEntryQuery(t *testing.T) {
 	ll := "663	18:55.0	18:55.6	GET	http://127.0.0.1:58800/auth/?role=User&session=Active	undefined	200"
-	tlr := &LogReaderInfo{}
+	tlr := &TransactionLogInfo{}
 	tle, err := tlr.ParseTransactionLogEntry(ll)
 	AssertSuccess(t, err)
 	role, exists := tle.Query["role"]
@@ -107,7 +107,8 @@ func TestReadExampleLog(t *testing.T) {
 	dir, err := os.Getwd()
 	filepath := fmt.Sprintf("file:///%s/coverage-report.txt", strings.Replace(dir, "\\", "/", -1))
 
-	lr, err := NewLogReader(filepath)
+	lr := NewTransactionLogReader()
+	err = lr.SetLogURL(filepath)
 	AssertSuccess(t, err)
 	lel, err := lr.GetLogEntries()
 	AssertSuccess(t, err)

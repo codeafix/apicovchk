@@ -18,7 +18,12 @@ func TestCheckCoverage(t *testing.T) {
 				Swagger:   swagpath,
 			},
 		},
-		TransactionLogs: []string{logpath},
+		TransactionLogs: []LogEntry{
+			LogEntry{
+				LogURL:  logpath,
+				LogType: Transaction,
+			},
+		},
 	}
 	cc := NewCovChecker()
 	err = cc.CheckCoverage(c)
@@ -38,7 +43,12 @@ func TestWriteOutput(t *testing.T) {
 				Swagger:   swagpath,
 			},
 		},
-		TransactionLogs: []string{logpath},
+		TransactionLogs: []LogEntry{
+			LogEntry{
+				LogURL:  logpath,
+				LogType: Transaction,
+			},
+		},
 	}
 	cc := NewCovChecker()
 	err = cc.CheckCoverage(c)

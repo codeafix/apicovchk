@@ -29,7 +29,8 @@ func TestAddSwaggerToPathMap(t *testing.T) {
 func CheckTransactionLogEntry(t *testing.T) {
 	dir, err := os.Getwd()
 	filepath := fmt.Sprintf("file:///%s/coverage-report.txt", strings.Replace(dir, "\\", "/", -1))
-	lr, err := NewLogReader(filepath)
+	lr := NewTransactionLogReader()
+	err = lr.SetLogURL(filepath)
 	AssertSuccess(t, err)
 	pm := NewPathMap()
 	lel, err := lr.GetLogEntries()

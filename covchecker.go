@@ -60,7 +60,9 @@ func (cc *CovCheckerInfo) CheckCoverage(config Config) error {
 		return err
 	}
 	for _, logFile := range config.TransactionLogs {
-		lr, err := NewLogReader(logFile)
+		lrr := NewLogReaderRepo()
+		lr := lrr.GetLogReader(logFile.LogType)
+		err := lr.SetLogURL(logFile.LogURL)
 		if err != nil {
 			return err
 		}

@@ -104,7 +104,8 @@ func TestReadExampleSumoLog(t *testing.T) {
 	dir, err := os.Getwd()
 	filepath := fmt.Sprintf("file:///%s/sumologic.csv", strings.Replace(dir, "\\", "/", -1))
 
-	lr, err := NewSumoLogReader(filepath)
+	lr := NewSumoLogReader()
+	err = lr.SetLogURL(filepath)
 	AssertSuccess(t, err)
 	lel, err := lr.GetLogEntries()
 	AssertSuccess(t, err)

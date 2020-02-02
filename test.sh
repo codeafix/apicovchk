@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+mkdir -p temp
 echo "" > temp/coverage.txt
 
 go test -coverprofile=temp/profile.out -covermode=atomic $d

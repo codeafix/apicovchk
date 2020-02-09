@@ -26,13 +26,8 @@ func covcheck(conf Config, outfilename string) error {
 		return err
 	}
 	cc.NavigatePathMap()
-	f, err := os.Create(outfilename)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-	_, err = f.Write([]byte(cc.PrintStats()))
-	return err
+	hw := NewHTMLWriter(cc)
+	return hw.Write(outfilename)
 }
 
 func parseCommandLineOptions(args []string) (success bool, conf Config, outfilename string) {

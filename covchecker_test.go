@@ -39,7 +39,7 @@ func TestWriteOutput(t *testing.T) {
 	c := Config{
 		Services: []ServiceEntry{
 			ServiceEntry{
-				RoutePath: "data",
+				RoutePath: "petstore",
 				Swagger:   swagpath,
 			},
 		},
@@ -54,8 +54,7 @@ func TestWriteOutput(t *testing.T) {
 	err = cc.CheckCoverage(c)
 	AssertSuccess(t, err)
 	cc.NavigatePathMap()
-	f, err := os.Create("temp/out.html")
+	hw := NewHTMLWriter(cc)
+	err = hw.Write("temp/out.html")
 	AssertSuccess(t, err)
-	defer f.Close()
-	_, err = f.Write([]byte(cc.PrintStats()))
 }

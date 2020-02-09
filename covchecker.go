@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 )
 
@@ -41,6 +40,8 @@ type VerbStat struct {
 	Total        int
 	Covered      int
 	Undocumented int
+	Responses    map[string]*Response
+	Parameters   map[string]*QueryParameter
 }
 
 //NewCovChecker returns a new instance of the Coverage Checker
@@ -75,54 +76,6 @@ func (cc *CovCheckerInfo) CheckCoverage(config Config) error {
 		}
 	}
 	return nil
-}
-
-//PrintStats prints the calculated coverage stats into an HTML document
-func (cc *CovCheckerInfo) PrintStats() string {
-	var buf bytes.Buffer
-	fmt.Fprintf(&buf, `<html>
-<h1>Summary</h1>
-<table>
-<tr><td>Overall API coverage</td><td><meter min="0" max="1" low="0.8" high="0.8" optimum="1" value="%3.2f"></meter> %3.2f%%</td></tr>
-<tr><td>Overall API documentation</td><td><meter min="0" max="1" low=".9999" high=".9999" optimum="1" value="%3.2f"></meter> %3.2f%%</td></tr>
-</table>
-<h2>Coverage summary by Service</h2>
-<table>
-`, cc.Coverage, cc.Coverage*100, 1-cc.Undocumented, (1-cc.Undocumented)*100)
-
-	//First let's print the summary of services
-	for _, ss := range cc.ServiceStats {
-		fmt.Fprintf(&buf,
-			`<tr>
-  <td>%s</td>
-  <td><meter min="0" max="1" low="0.8" high="0.8" optimum="1" value="%3.2f"></meter> Coverage: %3.2f%%<br/>
-  <meter min="0"  max="1" low=".9999" high=".9999" optimum="1" value="%3.2f"></meter> Documented: %3.2f%%
-  </td>
-</tr>
-`, ss.Name, ss.Coverage, ss.Coverage*100, 1-ss.Undocumented, (1-ss.Undocumented)*100)
-	}
-	fmt.Fprintln(&buf, `</table>`)
-
-	for _, ss := range cc.ServiceStats {
-		fmt.Fprintf(&buf, `<h1>%s</h1>
-<table>
-`, ss.Name)
-
-		for _, ep := range ss.Endpoints {
-			fmt.Fprintf(&buf,
-				`<tr>
-  <td>%s</td>
-  <td><meter min="0" max="1" low="0.8" high="0.8" optimum="1" value="%3.2f"></meter> Coverage: %3.2f%%<br/>
-  <meter min="0" max="1" low=".9999" high=".9999" optimum="1" value="%3.2f"></meter> Documented: %3.2f%%
-  </td>
-</tr>
-`, ep.Path, ep.Coverage, ep.Coverage*100, 1-ep.Undocumented, (1-ep.Undocumented)*100)
-		}
-
-		fmt.Fprintln(&buf, `</table>`)
-	}
-	fmt.Fprintln(&buf, `</html>`)
-	return buf.String()
 }
 
 //NavigatePathMap navigates over the path map and calculates the coverage
@@ -180,7 +133,11 @@ func (cc *CovCheckerInfo) NavigatePathItem(ss *ServiceStat, pi *PathItem, path s
 //the logged response codes and query parameters against the documented
 //response codes and query parameters
 func (cc *CovCheckerInfo) CalculateVerbStats(verb *Verb) VerbStat {
-	vs := VerbStat{Method: verb.Name}
+	vs := VerbStat{
+		Method:     verb.Name,
+		Responses:  verb.Responses,
+		Parameters: verb.QueryParameters,
+	}
 	for _, response := range verb.Responses {
 		vs.Total = vs.Total + 1
 		if !response.Documented {

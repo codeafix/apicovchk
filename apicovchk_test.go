@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"os"
+	"strings"
 	"testing"
 )
 
@@ -16,7 +16,6 @@ func TestParseCommandOptionsFailsWhenOnlyHelp(t *testing.T) {
 func TestParseCommandOptionsReadOptionsFile(t *testing.T) {
 	args := []string{"apicovchk.exe", "-opt", "options.json"}
 	success, conf, outfilename := parseCommandLineOptions(args)
-	fmt.Printf("%v", conf)
 	IsTrue(t, success, "Expected parse to succeed")
 	AreEqual(t, "coverage.html", outfilename, "outfilename not set to default")
 	AreEqual(t, 2, len(conf.TransactionLogs), "Wrong number of transaction logs")
@@ -107,7 +106,10 @@ func CheckGold(t *testing.T, goldfile, json string) {
 	gold, err := ioutil.ReadFile(goldfile)
 	AssertSuccess(t, err)
 
-	if string(gold) != json {
+	goldLF := strings.ReplaceAll(string(gold), "\r", "")
+	jsonLF := strings.ReplaceAll(json, "\r", "")
+
+	if string(goldLF) != jsonLF {
 		f, err := os.Create("temp/check_" + goldfile)
 		AssertSuccess(t, err)
 		defer f.Close()

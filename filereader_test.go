@@ -102,5 +102,7 @@ func TestReadFromFile(t *testing.T) {
 	sr, err := NewFileReader(filepath)
 	AssertSuccess(t, err)
 	c, err := sr.ReadFromFile()
-	AreEqual(t, "\"swagger\": \"2.0\"", string(c[4:20]), "Unable to read file")
+	i := strings.Index(string(c), "\"swagger\"")
+	IsTrue(t, i > 0, "Swagger version not found in file")
+	AreEqual(t, "\"swagger\": \"2.0\"", string(c[i:i+16]), "Unable to read file")
 }

@@ -33,5 +33,4 @@ jobs:
         fi
     
     -name: Coverage
-      run: |
-        bash <(curl -s https://codecov.io/bash)
+      run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}

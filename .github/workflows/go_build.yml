@@ -23,5 +23,15 @@ jobs:
 
     - name: Test
       run: |
-        rm -rf ./temp && mkdir ./temp
-        go test -v ./...
+        mkdir -p temp
+        echo "" > temp/coverage.txt
+
+        go test -coverprofile=temp/profile.out -covermode=atomic $d
+        if [ -f temp/profile.out ]; then
+            cat temp/profile.out >> temp/coverage.txt
+            rm temp/profile.out
+        fi
+    
+    -name: Coverage
+      run: |
+        bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}

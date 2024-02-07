@@ -14,9 +14,11 @@
 			"Host": "",
 			"Path": "/api/v3/Document/*",
 			"RawPath": "/api/v3/Document/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -37,9 +39,11 @@
 			"Host": "",
 			"Path": "/api/v3/Obligation/*",
 			"RawPath": "/api/v3/Obligation/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -60,9 +64,11 @@
 			"Host": "",
 			"Path": "/api/v3/agent/*",
 			"RawPath": "/api/v3/agent/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -83,9 +89,11 @@
 			"Host": "",
 			"Path": "/api/v3/clients/*",
 			"RawPath": "/api/v3/clients/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -106,9 +114,11 @@
 			"Host": "",
 			"Path": "/api/v3/contacts/*",
 			"RawPath": "/api/v3/contacts/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -129,9 +139,11 @@
 			"Host": "",
 			"Path": "/api/v3/template/*",
 			"RawPath": "/api/v3/template/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -152,9 +164,11 @@
 			"Host": "",
 			"Path": "/api/v3/fileinfo/*",
 			"RawPath": "/api/v3/fileinfo/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -175,9 +189,11 @@
 			"Host": "",
 			"Path": "/api/v3/store/*",
 			"RawPath": "/api/v3/store/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -197,9 +213,11 @@
 			"Host": "",
 			"Path": "/api/v3/*",
 			"RawPath": "/api/v3/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -219,9 +237,11 @@
 			"Host": "",
 			"Path": "/api/v3/Agent",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -242,9 +262,11 @@
 			"Host": "",
 			"Path": "/api/v3/Agent/*",
 			"RawPath": "/api/v3/Agent/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -265,9 +287,11 @@
 			"Host": "",
 			"Path": "/api/v3/ClientSummary/*",
 			"RawPath": "/api/v3/ClientSummary/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -287,9 +311,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -310,9 +336,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*",
 			"RawPath": "/api/v3/Clients/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -334,9 +362,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*/ClientNotes",
 			"RawPath": "/api/v3/Clients/*/ClientNotes",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -358,9 +388,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*/Document",
 			"RawPath": "/api/v3/Clients/*/Document",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "year=*\u0026filingMonth=*\u0026productTypeId=*\u0026productTypeId=*\u0026productTypeId=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"filingMonth": [
@@ -395,9 +427,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*/Document/Request",
 			"RawPath": "/api/v3/Clients/*/Document/Request",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "year=*\u0026filingMonth=*\u0026isReminder=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"filingMonth": [
@@ -430,9 +464,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*/Document/Request",
 			"RawPath": "/api/v3/Clients/*/Document/Request",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "year=*\u0026filingMonth=*\u0026productTypeId=*\u0026productTypeId=*\u0026productTypeId=*\u0026isReminder=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"filingMonth": [
@@ -469,9 +505,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*/Document",
 			"RawPath": "/api/v3/Clients/*/Document",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "clientId=*\u0026year=*\u0026filingMonth=*\u0026productTypeId=*\u0026productTypeId=*\u0026productTypeId=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"clientId": [
@@ -506,9 +544,11 @@
 			"Host": "",
 			"Path": "/api/v3/Template",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "periodId=*\u0026includeDeleted=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"includeDeleted": [
@@ -535,9 +575,11 @@
 			"Host": "",
 			"Path": "/api/v3/Document",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "clientId=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"clientId": [
@@ -562,9 +604,11 @@
 			"Host": "",
 			"Path": "/api/v3/Store/*",
 			"RawPath": "/api/v3/Store/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -584,9 +628,11 @@
 			"Host": "",
 			"Path": "/api/v3/contacts",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "ClientId=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"ClientId": [
@@ -610,9 +656,11 @@
 			"Host": "",
 			"Path": "/api/v3/contacts",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "clientId=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"clientId": [
@@ -636,9 +684,11 @@
 			"Host": "",
 			"Path": "/api/v3/countries",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -658,9 +708,11 @@
 			"Host": "",
 			"Path": "/api/v3/languages",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -681,9 +733,11 @@
 			"Host": "",
 			"Path": "/api/v3/users/*",
 			"RawPath": "/api/v3/users/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -703,9 +757,11 @@
 			"Host": "",
 			"Path": "/api/v3/version",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -722,9 +778,11 @@
 			"Host": "",
 			"Path": "/auth-callback",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "auth-callback",
@@ -743,9 +801,11 @@
 			"Host": "",
 			"Path": "/css/base.css",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "v=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"v": [
@@ -768,9 +828,11 @@
 			"Host": "",
 			"Path": "/images/favicon.png",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "images",
@@ -789,9 +851,11 @@
 			"Host": "",
 			"Path": "/images/logo.svg",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "images",
@@ -811,9 +875,11 @@
 			"Host": "",
 			"Path": "/lib/csv-js/csv.js",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "lib",
@@ -830,9 +896,11 @@
 			"Host": "",
 			"Path": "/login",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "login",
@@ -849,9 +917,11 @@
 			"Host": "",
 			"Path": "/logout",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "logout",
@@ -870,9 +940,11 @@
 			"Host": "",
 			"Path": "/scripts/app.config.js",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "v=*",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"v": [
@@ -896,9 +968,11 @@
 			"Host": "",
 			"Path": "/api/v3/*",
 			"RawPath": "/api/v3/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -919,9 +993,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients/*",
 			"RawPath": "/api/v3/Clients/*",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",
@@ -941,9 +1017,11 @@
 			"Host": "",
 			"Path": "/api/v3/Clients",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "api",

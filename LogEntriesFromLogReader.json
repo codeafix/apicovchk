@@ -12,9 +12,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/auth/",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "role=User",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"role": [
@@ -37,9 +39,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/template/published",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "template",
@@ -58,9 +62,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/auth/",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "role=User",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {
 			"role": [
@@ -85,9 +91,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/orchestration/client/TestClient/entity",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "orchestration",
@@ -110,9 +118,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "orchestration",
@@ -135,9 +145,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/data/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "data",
@@ -162,9 +174,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/orchestration/client/TestClient/entity/32a7e0b0-8130-4ab1-ace0-a81000890a14/period/e2984c36-aa47-479b-96d3-a81000890af3/links",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "orchestration",
@@ -186,9 +200,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "data-store",
@@ -212,9 +228,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/data-store/client/TestClient/containers/25a03eed-59ca-474e-afc2-96c772fc986d/containerGroups/e4ec8beb-d964-5c66-a9d3-85d3808c1838",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "data-store",
@@ -236,9 +254,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "data-store",
@@ -261,9 +281,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/data-store/client/TestClient/pages/f5d9498d-1c94-59ed-9330-2e6dd4c4a3b6/values",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "data-store",
@@ -284,9 +306,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/report-store/containers/2827aaa9-2fcb-4cef-ab58-a81000890b41/reports",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "report-store",
@@ -305,9 +329,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/reports/compose-report",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "reports",
@@ -328,9 +354,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "ops",
@@ -351,9 +379,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "ops",
@@ -374,9 +404,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/ops/long-running-process/0785daf8-33f1-4050-b43b-70499ab7c08b/0785daf8-33f1-4050-b43b-70499ab7c08b",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "ops",
@@ -396,9 +428,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/reports/page/25e3bbe4-68a2-4005-a5c5-30d2a794f531",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "reports",
@@ -420,9 +454,11 @@
 			"Host": "127.0.0.1:58800",
 			"Path": "/reports/images/client/TestClient/reports",
 			"RawPath": "",
+			"OmitHost": false,
 			"ForceQuery": false,
 			"RawQuery": "",
-			"Fragment": ""
+			"Fragment": "",
+			"RawFragment": ""
 		},
 		"query": {},
 		"service": "reports",

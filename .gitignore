@@ -4,6 +4,10 @@
 *.dll
 *.so
 *.dylib
+apicovchk
+
+# Temp directory
+temp/
 
 # Test binary, build with `go test -c`
 *.test

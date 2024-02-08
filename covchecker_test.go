@@ -13,13 +13,13 @@ func TestCheckCoverage(t *testing.T) {
 	logpath := fmt.Sprintf("file:///%s/petstore-report.txt", strings.Replace(dir, "\\", "/", -1))
 	c := Config{
 		Services: []ServiceEntry{
-			ServiceEntry{
+			{
 				RoutePath: "petstore",
 				Swagger:   swagpath,
 			},
 		},
 		TransactionLogs: []LogEntry{
-			LogEntry{
+			{
 				LogURL:  logpath,
 				LogType: Transaction,
 			},
@@ -38,13 +38,13 @@ func TestWriteOutput(t *testing.T) {
 	logpath := fmt.Sprintf("file:///%s/petstore-report.txt", strings.Replace(dir, "\\", "/", -1))
 	c := Config{
 		Services: []ServiceEntry{
-			ServiceEntry{
+			{
 				RoutePath: "petstore",
 				Swagger:   swagpath,
 			},
 		},
 		TransactionLogs: []LogEntry{
-			LogEntry{
+			{
 				LogURL:  logpath,
 				LogType: Transaction,
 			},

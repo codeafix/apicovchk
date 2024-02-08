@@ -14,7 +14,7 @@ func TestAddSwaggerToPathMap(t *testing.T) {
 	filepath := fmt.Sprintf("file:///%s/PetstoreSwagger.json", strings.Replace(dir, "\\", "/", -1))
 	c := Config{
 		Services: []ServiceEntry{
-			ServiceEntry{
+			{
 				RoutePath: "petstore",
 				Swagger:   filepath,
 			},
@@ -74,7 +74,7 @@ func GenerateEntries(t *testing.T, entries *[][7]string, dir string, domain stri
 	filepath := fmt.Sprintf("file:///%s/PetStoreSwagger.json", strings.Replace(dir, "\\", "/", -1))
 	c := Config{
 		Services: []ServiceEntry{
-			ServiceEntry{
+			{
 				RoutePath: "petstore",
 				Swagger:   filepath,
 			},

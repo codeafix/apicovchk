@@ -38,7 +38,7 @@ func parseCommandLineOptions(args []string) (success bool, conf Config, outfilen
 		return false, conf, outfilename
 	}
 	skipnext := false
-	for i, arg := range args[1:len(args)] {
+	for i, arg := range args[1:] {
 		if skipnext {
 			skipnext = false
 			continue

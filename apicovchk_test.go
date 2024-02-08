@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"strings"
 	"testing"
@@ -103,7 +102,7 @@ func AssertSuccess(t *testing.T, err error) {
 }
 
 func CheckGold(t *testing.T, goldfile, json string) {
-	gold, err := ioutil.ReadFile(goldfile)
+	gold, err := os.ReadFile(goldfile)
 	AssertSuccess(t, err)
 
 	goldLF := strings.ReplaceAll(string(gold), "\r", "")

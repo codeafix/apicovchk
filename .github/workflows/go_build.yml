@@ -1,0 +1,36 @@
+name: Go Build
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21.6'
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Test
+      run: |
+        mkdir -p temp
+        echo "" > temp/coverage.txt
+
+        go test -coverprofile=temp/profile.out -covermode=atomic $d
+        if [ -f temp/profile.out ]; then
+            cat temp/profile.out >> temp/coverage.txt
+            rm temp/profile.out
+        fi
+    
+    - name: Coverage
+      run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
